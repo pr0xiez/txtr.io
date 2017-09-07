@@ -1,7 +1,7 @@
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { MdSnackBar } from "@angular/material";
-import { AuthService } from "../core/services/auth.service";
+import { AuthService } from "../services/auth.service";
 
 @Component({
   selector: 'login',
@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
               private authService: AuthService) { }
               
   loginForm: FormGroup
+
 
   ngOnInit() {
     this.buildForm()

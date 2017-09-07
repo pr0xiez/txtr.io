@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Subject } from 'rxjs/Subject'
@@ -8,16 +8,20 @@ import { Subject } from 'rxjs/Subject'
  * @description AuthService class authorization/userType state for current user
  */
 
-
-type UserType = 'admin' | 'default' | 'disabled'
+export type LoginLogoutText = 'Login' | 'Logout'
+export type UserType = 'admin' | 'default' | 'disabled'
 @Injectable()
-export class AuthService {
+export class AuthService implements OnInit {
   constructor(private httpClient: HttpClient) {}
-  isAuthenticated$: Subject<boolean> = new Subject()
+  isAuthenticated$: Subject<boolean>
+  loginLogoutText$: Subject<LoginLogoutText>
   userType$: Subject<UserType> = new Subject()
+
+  ngOnInit() {}
 
   private changeIsAuthenticated(x: boolean): void {
     this.isAuthenticated$.next(x)
+    x === true ? this.loginLogoutText$.next('Logout') : this.loginLogoutText$.next('Login')
   }
 
   private changeUserType(x: UserType): void {

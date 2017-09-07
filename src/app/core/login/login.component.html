@@ -1,12 +1,12 @@
 <form [formGroup]="loginForm" (ngSubmit)="submit(loginForm)" ngNativeValidate>
 	<div fxLayout="column" fxLayoutGap="8px">
-		<img src="../../assets/bluevoi.png">
+		<h3 fxFlexAlign="center">txtr.io</h3>
 		<md-divider></md-divider>
-		<md-input-container class="email" floatPlaceholder="never">
+		<md-input-container class="actions" floatPlaceholder="never">
 			<input mdInput name="email" formControlName="email" placeholder="Email..." required>
 		</md-input-container>
 
-		<md-input-container floatPlaceholder="never">
+		<md-input-container class="actions" floatPlaceholder="never">
 			<input mdInput name="password" formControlName="password" placeholder="Password.." required>
 		</md-input-container>
 	</div>
