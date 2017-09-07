@@ -1,0 +1,12 @@
+import { NgModule } from '@angular/core'
+import { BrowserModule  } from '@angular/platform-browser'
+import { HttpModule } from '@angular/http'
+
+import { LoginRoutingModule } from './login-routing.module'
+
+@NgModule({
+  exports: LoginRoutingModule.components,
+  declarations: LoginRoutingModule.components,
+  providers: [/* TODO: Providers go here */]
+})
+export class LoginModule { }
