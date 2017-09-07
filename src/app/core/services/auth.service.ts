@@ -3,8 +3,13 @@ import { HttpClient } from '@angular/common/http';
 
 import { Subject } from 'rxjs/Subject'
 
-type UserType = 'admin' | 'default' | 'disabled'
+/**
+ * @author ADH - 9.7.17 - <alex.hall@united-installs.com>
+ * @description AuthService class authorization/userType state for current user
+ */
 
+
+type UserType = 'admin' | 'default' | 'disabled'
 @Injectable()
 export class AuthService {
   constructor(private httpClient: HttpClient) {}

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'login',
-  template: `<p>Login Page is Alive</p>`
+  templateUrl: 'login.component.html'
 })
 
 export class LoginComponent implements OnInit {
