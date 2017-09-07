@@ -1,0 +1,23 @@
+:host {
+  float: center;
+  margin: auto;
+  background: darkgrey;
+  padding: 10px;
+  width: 400px;
+  height: 450px;
+  border-radius: 10px;
+  border: 3px solid #478cff;
+  margin-top: 100px;
+}
+.actions {
+  width: 100%;
+}
+
+md-divider {
+  border-width: 0.5px;
+  border-style: solid;
+  border-color: grey;
+}
+.email {
+  padding-top: 10px;
+}

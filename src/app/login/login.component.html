@@ -1,1 +1,17 @@
-Login
+<form [formGroup]="loginForm" (ngSubmit)="submit(loginForm)" ngNativeValidate>
+	<div fxLayout="column" fxLayoutGap="8px">
+		<img src="../../assets/bluevoi.png">
+		<md-divider></md-divider>
+		<md-input-container class="email" floatPlaceholder="never">
+			<input mdInput name="email" formControlName="email" placeholder="Email..." required>
+		</md-input-container>
+
+		<md-input-container floatPlaceholder="never">
+			<input mdInput name="password" formControlName="password" placeholder="Password.." required>
+		</md-input-container>
+	</div>
+	<br>
+	<button md-raised-button color="primary" class="actions" type="submit">Submit</button>
+	<br><br>
+	<button md-button (click)="openForgotPasswordDialog()" class="actions" type="button">Forgot Password?</button>
+</form>
