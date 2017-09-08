@@ -48,8 +48,8 @@ submit(loginForm) {
         password: loginForm.controls.password.value
     }
 
-    //this.authService.loginHTTP(userCredentials)
-      //  .subscribe(res => this.onNext(res), this.onError(), this.onComplete())
+    this.authService.login(userCredentials)
+       .subscribe(res => this.onNext(res), this.onError(), this.onComplete())
 }
 
 onNext(x) { // called every time data is emitted from Observable

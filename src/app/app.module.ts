@@ -5,6 +5,10 @@ import { NgModule } from '@angular/core'
 
 import { AppComponent } from './app.component'
 import { SharedModule } from "./core/shared.module";
+import { ToolbarModule } from "./core/toolbar/toolbar.module";
+
+import 'hammerjs'
+import { AppRoutingModule } from "./app-routing.module";
 
 @NgModule({
   declarations: [
@@ -14,7 +18,9 @@ import { SharedModule } from "./core/shared.module";
     BrowserAnimationsModule,
     CoreModule,
     SharedModule,
-    LoginModule
+    AppRoutingModule,
+    LoginModule,
+    ToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

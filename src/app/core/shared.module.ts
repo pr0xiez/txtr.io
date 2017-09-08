@@ -1,5 +1,5 @@
 import { FlexLayoutModule } from '@angular/flex-layout'
-import { MaterialModule, MdInputModule } from '@angular/material'
+import { MaterialModule, MdInputModule, MdToolbarModule } from '@angular/material'
 import { ReactiveFormsModule } from '@angular/forms'
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
@@ -16,7 +16,8 @@ import { NgModule } from '@angular/core'
     ReactiveFormsModule,
     MaterialModule,
     FlexLayoutModule,
-    MdInputModule
+    MdInputModule,
+    MdToolbarModule
   ],
   providers: [],
 })

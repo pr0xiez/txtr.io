@@ -1,7 +1,10 @@
+import { HttpResponse } from '@angular/common/http/src/response';
+import { IUserLogin } from './interfaces';
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Subject } from 'rxjs/Subject'
+import { Queries } from './queries'
 
 /**
  * @author ADH - 9.7.17 - <alex.hall@united-installs.com>
@@ -13,23 +16,23 @@ export type UserType = 'admin' | 'default' | 'disabled'
 @Injectable()
 export class AuthService implements OnInit {
   constructor(private httpClient: HttpClient) {}
-  isAuthenticated$: Subject<boolean>
-  loginLogoutText$: Subject<LoginLogoutText>
-  userType$: Subject<UserType> = new Subject()
+  endpointURL: string = 'https://ui-txtr.mybluemix.net/graphql'
+  isAuthenticated: boolean = false
+  userType: UserType
 
-  ngOnInit() {}
-
-  private changeIsAuthenticated(x: boolean): void {
-    this.isAuthenticated$.next(x)
-    x === true ? this.loginLogoutText$.next('Logout') : this.loginLogoutText$.next('Login')
+  ngOnInit() {
+    this.isAuthenticated = sessionStorage.getItem('token') ? true : false
   }
 
-  private changeUserType(x: UserType): void {
-    this.userType$.next(x)
-  }
-
-  login() {
-    // TODO
+  login(userLogin: IUserLogin) {
+    const body = {
+			query: Queries.queries.login,
+			variables: { email: userLogin.email, password: userLogin.password }
+    }
+    return this.httpClient.post<HttpResponse<any>>(this.endpointURL, body)
+      .map(res => {
+        console.log(res)
+      })
   }
 
   logout() {
