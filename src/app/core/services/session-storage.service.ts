@@ -4,7 +4,7 @@ import * as crypt from 'crypto-js'
 @Injectable()
 export class SessionStorageService {
   secretKey: string = 'doubleIPAbestBeerNALOLLL111'
-  private clearStorage() { sessionStorage.clear() }
+  public clearStorage() { sessionStorage.clear() }
 
   public setItem(key: string, data: Object): void {
     sessionStorage.setItem(key, JSON.stringify(data))

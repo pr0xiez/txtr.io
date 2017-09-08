@@ -1,3 +1,4 @@
+import { SessionStorageService } from './services/session-storage.service';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from './shared.module';
@@ -11,6 +12,7 @@ import { HttpInterceptorService } from "./http.interceptors";
   exports: [HttpClientModule],
   providers: [ 
     AuthService,
+    SessionStorageService,
     { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}
   ]
 })

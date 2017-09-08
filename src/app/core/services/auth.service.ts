@@ -1,3 +1,4 @@
+import { SessionStorageService } from './session-storage.service';
 import { HttpResponse } from '@angular/common/http/src/response';
 import { IUserLogin } from './interfaces';
 import { Injectable, OnInit } from '@angular/core';
@@ -15,7 +16,7 @@ export type LoginLogoutText = 'Login' | 'Logout'
 export type UserType = 'admin' | 'default' | 'disabled'
 @Injectable()
 export class AuthService implements OnInit {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, private storage: SessionStorageService) {}
   endpointURL: string = 'https://ui-txtr.mybluemix.net/graphql'
   isAuthenticated: boolean = false
   userType: UserType
@@ -31,11 +32,15 @@ export class AuthService implements OnInit {
     }
     return this.httpClient.post<HttpResponse<any>>(this.endpointURL, body)
       .map(res => {
+        if (res.body.data.credentials.token) {
+          this.isAuthenticated = true
+          this.storage.setEncryptedItem('token', res.body.data.credentials.token)
+        }
         console.log(res)
       })
   }
 
   logout() {
-    // TODO
+    this.storage.clearStorage()
   }
 }
