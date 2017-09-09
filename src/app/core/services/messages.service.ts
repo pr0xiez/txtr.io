@@ -11,6 +11,10 @@ export class MessagesService {
   constructor(private httpClient: HttpClient, private authService: AuthService) { }
   messages
   messages$: Subject<any[]> = new Subject
+
+  ngOnInit() {
+    this.getSentMessages()
+  }
   
   messagesChanged() {
     this.messages$.next(this.messages)

@@ -53,7 +53,7 @@ submit(loginForm) {
 }
 
 onNext(x) { // called every time data is emitted from Observable
-    
+    console.log(x)
 }
 
 onError() {

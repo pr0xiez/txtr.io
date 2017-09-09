@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MessagesService } from '../core/services/messages.service';
+import { MessagesDataSource } from './messages-data';
 
 @Component({
   selector: 'home',
@@ -9,11 +10,9 @@ import { MessagesService } from '../core/services/messages.service';
 
 export class HomeComponent implements OnInit {
   constructor(private messagesService: MessagesService) { }
-  messages
-
-  ngOnInit() {
-    this.messagesService.getSentMessages().subscribe(x => this.messages = x)
-  }
+  displayedColumns = ['id', 'from', 'to', 'portalCode', 'scheduledDate']
+  messages = new MessagesDataSource(this.messagesService)
+  ngOnInit() {}
 }
 
 interface ISentMessage {

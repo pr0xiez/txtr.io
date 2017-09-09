@@ -32,7 +32,8 @@ export class AuthService implements OnInit {
 			query: Queries.queries.login,
 			variables: { email: userLogin.email, password: userLogin.password }
     }
-    return this.httpClient.post<IHttpResponse>(this.endpointURL, body)
+    console.log(body)
+    return this.httpClient.post<any>(this.endpointURL, body)
       .map(res => {
         if (res.data.credentials.token) {
           console.log('token', res.data.credentials.token)

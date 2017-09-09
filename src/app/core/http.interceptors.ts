@@ -9,9 +9,13 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class HttpInterceptorService implements HttpInterceptor {
   constructor(private storage: SessionStorageService) {}
+  token: string
+
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token = this.storage.getDecryptedItem('token')
-    const _req = req.clone({setHeaders: {authentication: token}})
+    if (sessionStorage.getItem('token')) {
+      this.token = this.storage.getDecryptedItem('token')
+    }
+    const _req = req.clone({setHeaders: {authentication: this.token}})
     
     
     if(sessionStorage.getItem('token')) {
