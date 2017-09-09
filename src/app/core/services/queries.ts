@@ -6,6 +6,46 @@ export class Queries {
           token
         }
       }
+    `,
+    sentMessages: `
+    query SentMessages {
+      sentMsgs {
+        id
+        fromNumber
+        toNumber
+        twilioSid
+        body
+        messageId
+        templateVars
+        customer {
+          id
+          firstName
+          lastName
+          phoneNumber
+          email
+          timezone
+          createdAt
+          updatedAt
+        }
+        txtrClient {
+          id
+          name
+          createdAt
+          updatedAt
+        }
+        msgType {
+          id
+          name
+          template
+          sendAfterHour
+          sendBeforeHour
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+    }
     `
 	}
 }

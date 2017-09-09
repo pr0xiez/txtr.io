@@ -1,6 +1,6 @@
 import { SessionStorageService } from './session-storage.service';
 import { HttpResponse } from '@angular/common/http/src/response';
-import { ILoginResponse, IUserLogin } from './interfaces';
+import { IHttpResponse, IUserLogin } from './interfaces';
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -32,9 +32,10 @@ export class AuthService implements OnInit {
 			query: Queries.queries.login,
 			variables: { email: userLogin.email, password: userLogin.password }
     }
-    return this.httpClient.post<ILoginResponse>(this.endpointURL, body)
+    return this.httpClient.post<IHttpResponse>(this.endpointURL, body)
       .map(res => {
         if (res.data.credentials.token) {
+          console.log('token', res.data.credentials.token)
           this.isAuthenticated = true
           this.storage.setEncryptedItem('token', res.data.credentials.token)
           console.log(this.storage.getDecryptedItem('token'))

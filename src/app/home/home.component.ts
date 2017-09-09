@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MessagesService } from '../core/services/messages.service';
 
 @Component({
   selector: 'home',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class HomeComponent implements OnInit {
-  constructor() { }
+  constructor(private messagesService: MessagesService) { }
+  messages
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.messagesService.getSentMessages().subscribe(x => this.messages = x)
+  }
+}
+
+interface ISentMessage {
+
 }

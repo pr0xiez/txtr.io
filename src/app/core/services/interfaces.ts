@@ -3,7 +3,7 @@ export interface IUserLogin {
   password: string
 }
 
-export interface ILoginResponse {
+export interface IHttpResponse {
   data: any
   errors: any
 }
