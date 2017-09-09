@@ -24,6 +24,11 @@ export class ToolbarComponent {
 		this.router.navigate(['/login'])
 	}
 
+	loginLogout() {
+		this.authService.isAuthenticated ? this.logout() : this.redirectToLogin()
+		console.log('button pressed')
+	}
+
 	logout() {
     this.authService.logout()
     this.redirectToLogin()

@@ -20,6 +20,7 @@ export class AuthService implements OnInit {
   endpointURL: string = 'https://ui-txtr.mybluemix.net/graphql'
   isAuthenticated: boolean = false
   userType: UserType
+  redirectUrl: string
 
   ngOnInit() {
     this.isAuthenticated = sessionStorage.getItem('token') ? true : false
@@ -35,6 +36,7 @@ export class AuthService implements OnInit {
         if (res.body.data.credentials.token) {
           this.isAuthenticated = true
           this.storage.setEncryptedItem('token', res.body.data.credentials.token)
+          console.log(this.storage.getDecryptedItem('token'))
         }
         console.log(res)
       })

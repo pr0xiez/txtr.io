@@ -6,8 +6,7 @@ import { HttpModule } from '@angular/http'
 import { LoginRoutingModule } from './login-routing.module'
 
 @NgModule({
-  imports: [ SharedModule ],
-  exports: LoginRoutingModule.components,
+  imports: [ SharedModule, LoginRoutingModule ],
   declarations: LoginRoutingModule.components,
   providers: [/* TODO: Providers go here */]
 })
