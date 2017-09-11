@@ -7,6 +7,12 @@
     <!-- ID Column -->
     <ng-container mdColumnDef="id">
       <md-header-cell *mdHeaderCellDef> ID </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.id}} </md-cell>
+    </ng-container>
+
+    <!-- MessageID Column -->
+    <ng-container mdColumnDef="messageId">
+      <md-header-cell *mdHeaderCellDef> MessageID </md-header-cell>
       <md-cell *mdCellDef="let element"> {{element.messageId}} </md-cell>
     </ng-container>
 
@@ -31,7 +37,7 @@
     <!-- ScheduledTime Column -->
     <ng-container mdColumnDef="scheduledDate">
       <md-header-cell *mdHeaderCellDef> ScheduledDate </md-header-cell>
-      <md-cell *mdCellDef="let element"> {{element.templateVars.scheduledTime.date} </md-cell>
+      <md-cell *mdCellDef="let element"> {{element.templateVars.scheduledTime | json}} </md-cell>
     </ng-container>
 
     <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
