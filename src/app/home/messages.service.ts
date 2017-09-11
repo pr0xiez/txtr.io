@@ -24,6 +24,9 @@ export class MessagesService {
   connect() {
     return this.messages$.asObservable()
   }
+  disconnect() {
+    // TODO ??
+  }
 
   getSentMessages() {
     const body = {

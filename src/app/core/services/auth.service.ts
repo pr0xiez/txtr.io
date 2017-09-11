@@ -20,12 +20,12 @@ export type UserType = 'admin' | 'default' | 'disabled'
 export class AuthService implements OnInit {
   constructor(private httpClient: HttpClient, private storage: SessionStorageService, private router: Router) {}
   endpointURL: string = 'https://ui-txtr.mybluemix.net/graphql'
-  isAuthenticated: boolean = false
+  isAuthenticated: boolean
   userType: UserType
   redirectUrl: string
 
   ngOnInit() {
-    this.isAuthenticated = this.storage.getDecryptedItem('token') ? true : false
+    this.isAuthenticated = sessionStorage.getItem('token') ? true : false
   }
 
   login(userLogin: IUserLogin) {

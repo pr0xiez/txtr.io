@@ -21,7 +21,8 @@ export class ToolbarComponent {
 	}
 
 	redirectToLogin() {
-		this.router.navigate(['/login'])
+		console.log('go to login')
+		this.router.navigate(['login'])
 	}
 
 	loginLogout() {
