@@ -1,16 +1,46 @@
 import { OnInit } from '@angular/core';
-import { MessagesService } from '../core/services/messages.service';
-import { Observable } from "rxjs/Observable";
-import 'rxjs/add/observable/of';
-
+import { Observable } from 'rxjs/Rx';
+import { HttpClient } from '@angular/common/http';
+import { Queries } from '../core/services/queries'
+import { Subject } from 'rxjs/Subject'
+import { AuthService } from '../core/services/auth.service';
+import { IHttpResponse } from '../core/services/interfaces';
 
 export class MessagesDataSource implements OnInit {
-  constructor(private messagesService: MessagesService) {}
+  constructor(private httpClient: HttpClient, private authService: AuthService) {
+    console.log('constructor MessagesDataSource')
+    this.getSentMessages().subscribe()
+  }
+  messages
+  messages$: Subject<any[]> = new Subject
+
   ngOnInit() {
-    this.messagesService.getSentMessages().subscribe(res => console.log('dataSource', res))
+    console.log('ngOnInit MessagesDataSource')
   }
-  connect(): Observable<any> {
-    return Observable.of(this.messagesService.messages)
+  
+  messagesChanged(msgs) {
+    this.messages$.next(msgs)
   }
-  disconnect() {}
+  
+  connect() {
+    return this.messages$.asObservable()
+  }
+
+  disconnect() {
+    // TODO ??
+  }
+
+  getSentMessages() {
+    const body = {
+      query: Queries.queries.sentMessages
+    }
+
+    return this.httpClient.post<IHttpResponse>(this.authService.endpointURL, body)
+      .map(res => {
+        console.log('getSentMessages', res)
+        this.messagesChanged(res.data.sentMsgs)
+        return res
+      })
+      
+  }
 }

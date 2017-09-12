@@ -31,5 +31,6 @@ export class MessagesService {
         this.messages = res.data.sentMsgs
         return res
       })
+      
   }
 }

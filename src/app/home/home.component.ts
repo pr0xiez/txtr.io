@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MessagesService } from './messages.service';
 import { MessagesDataSource } from './messages-data';
+import { AuthService } from '../core/services/auth.service';
 
 @Component({
   selector: 'home',
@@ -8,11 +10,10 @@ import { MessagesDataSource } from './messages-data';
   styleUrls: ['home.component.scss']
 })
 
-export class HomeComponent implements OnInit {
-  constructor(private messagesService: MessagesService) { }
+export class HomeComponent {
+  constructor(public httpClient: HttpClient, public authService: AuthService) { }
   displayedColumns = ['id', 'messageId', 'from', 'to', 'portalCode', 'scheduledDate']
-  messages = this.messagesService
-  ngOnInit() {}
+  messages = new MessagesDataSource(this.httpClient, this.authService)
 }
 
 interface ISentMessage {

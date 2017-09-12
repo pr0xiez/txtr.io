@@ -14,7 +14,7 @@ import { AuthService, LoginLogoutText } from '../../core/services/auth.service';
 
 export class ToolbarComponent {
 	constructor(private router: Router,
-							private authService: AuthService,) {}
+							private authService: AuthService) {}
 
 	get loginLogoutText(): string {
 		return (this.authService.isAuthenticated) ? 'Logout' : 'Login'
