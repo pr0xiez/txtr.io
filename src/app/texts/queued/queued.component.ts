@@ -1,12 +1,11 @@
 import { HttpClient } from '@angular/common/http'
 import { Component, OnInit } from '@angular/core'
-import { QueuedMessagesDataSource } from './queued-messages.data'
+import { QueuedMessagesDataSource } from './queued.data'
 import { AuthService } from '../../core/services/auth.service'
 
 @Component({
-  selector: 'queued-messages',
-  templateUrl: 'queued-messages.component.html',
-  styleUrls: ['queued-messages.component.scss']
+  templateUrl: 'queued.component.html',
+  styleUrls: ['queued.component.scss']
 })
 
 export class QueuedMessagesComponent {

@@ -1,4 +1,4 @@
-import { ISentMessagesR } from './../../home/interfaces'
+import { ISentMessagesR } from "../../texts/interfaces";
 
 export interface IUserLogin {
   email: string,

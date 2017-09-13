@@ -1,4 +1,4 @@
-import { ISentMessagesR } from './../interfaces';
+import { ISentMessagesR } from '../interfaces';
 import { OnInit } from '@angular/core'
 import { Observable } from 'rxjs/Rx'
 import { HttpClient } from '@angular/common/http'
