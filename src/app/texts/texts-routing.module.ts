@@ -1,3 +1,5 @@
+import { ReceivedComponent } from './received/received.component';
+import { SentComponent } from './sent/sent.component';
 import { QueuedMessagesComponent } from './queued/queued.component'
 import { CanActivateGuard } from './can-activate.guard'
 import { NgModule } from '@angular/core'
@@ -18,6 +20,8 @@ const routes: Routes = [
 
 export class TextsRoutingModule {
 	static components = [
-		QueuedMessagesComponent
+		QueuedMessagesComponent,
+		SentComponent,
+		ReceivedComponent
 	]
 }

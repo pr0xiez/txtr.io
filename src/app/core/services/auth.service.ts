@@ -40,7 +40,7 @@ export class AuthService {
           this.storage.setEncryptedItem('token', res.data.credentials.token)
           console.log(this.storage.getDecryptedItem('token'))
         }
-        (this.redirectUrl != null) ? this.router.navigate([this.redirectUrl]) : this.router.navigate(['home'])
+        (this.redirectUrl != null) ? this.router.navigate([this.redirectUrl]) : this.router.navigate(['texts'])
       })
   }
 
