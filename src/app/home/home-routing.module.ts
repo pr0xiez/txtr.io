@@ -1,14 +1,15 @@
+import { HomeComponent } from './home.component';
 import { CanActivateGuard } from './can-activate.guard';
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 
-import { HomeComponent } from './home.component';
+import { QueuedMessagesComponent } from './text-messaging/queued-messages.component';
 
 
 const routes: Routes = [
-    { path: '', redirectTo: 'home', pathMatch: 'full'},
-	{ path: 'home', component: HomeComponent, canActivate: [CanActivateGuard] },
-	{ path: '**', pathMatch: 'full', redirectTo: 'home'}
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+	{ path: 'dashboard', component: HomeComponent, canActivate: [CanActivateGuard] },
+	{ path: '**', pathMatch: 'full', redirectTo: 'dashboard'}
 ]
 
 @NgModule({
@@ -18,5 +19,8 @@ const routes: Routes = [
 })
 
 export class HomeRoutingModule {
-	static components = [HomeComponent]
+	static components = [
+		QueuedMessagesComponent,
+		HomeComponent
+	]
 }

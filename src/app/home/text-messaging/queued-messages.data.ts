@@ -1,12 +1,12 @@
-import { OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
-import { HttpClient } from '@angular/common/http';
-import { Queries } from '../core/services/queries'
+import { OnInit } from '@angular/core'
+import { Observable } from 'rxjs/Rx'
+import { HttpClient } from '@angular/common/http'
+import { Queries } from '../../core/services/queries'
 import { Subject } from 'rxjs/Subject'
-import { AuthService } from '../core/services/auth.service';
-import { IHttpResponse } from '../core/services/interfaces';
+import { AuthService } from '../../core/services/auth.service'
+import { IHttpResponse } from '../../core/services/interfaces'
 
-export class MessagesDataSource implements OnInit {
+export class QueuedMessagesDataSource implements OnInit {
   constructor(private httpClient: HttpClient, private authService: AuthService) {
     console.log('constructor MessagesDataSource')
     this.getSentMessages().subscribe()
