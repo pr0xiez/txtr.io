@@ -3,6 +3,20 @@
     "node_modules/codelyzer"
   ],
   "rules": {
+    "typedef": [true, 
+      "call-signature",
+      "arrow-call-signature",
+      "parameter",
+      "arrow-parameter",
+      "property-declaration",
+      "variable-declaration",
+      "member-variable-declaration",
+      "object-destructuring",
+      "array-destructuring"
+    ],
+    "no-any": true,
+    "cyclomatic-complexity": [true, 10],
+    "no-unused-variable": true,
     "arrow-return-shorthand": true,
     "callable-types": true,
     "class-name": true,
@@ -86,8 +100,8 @@
     ],
     "radix": true,
     "semicolon": [
-      true,
-      "always"
+      false,
+      "never"
     ],
     "triple-equals": [
       true,

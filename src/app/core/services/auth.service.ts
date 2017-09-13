@@ -1,7 +1,7 @@
 import { SessionStorageService } from './session-storage.service';
 import { HttpResponse } from '@angular/common/http/src/response';
 import { IHttpResponse, IUserLogin } from './interfaces';
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Subject } from 'rxjs/Subject'
@@ -17,16 +17,14 @@ export type UserType = 'admin' | 'default' | 'disabled'
  */
 
 @Injectable()
-export class AuthService implements OnInit {
-  constructor(private httpClient: HttpClient, private storage: SessionStorageService, private router: Router) {}
+export class AuthService {
+  constructor(private httpClient: HttpClient, private storage: SessionStorageService, private router: Router) {
+    this.isAuthenticated = sessionStorage.getItem('token') ? true : false
+  }
   endpointURL: string = 'https://ui-txtr.mybluemix.net/graphql'
   isAuthenticated: boolean
   userType: UserType
   redirectUrl: string
-
-  ngOnInit() {
-    this.isAuthenticated = sessionStorage.getItem('token') ? true : false
-  }
 
   login(userLogin: IUserLogin) {
     const body = {

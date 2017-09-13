@@ -1,0 +1,11 @@
+:host {
+  flex-direction: column;
+  padding-top: 20px;
+}
+
+md-table {
+  overflow: auto;
+  max-height: 800px;
+  max-width: 1400px;
+  margin: auto;
+}

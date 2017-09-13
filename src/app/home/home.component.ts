@@ -1,8 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { MessagesService } from './messages.service';
-import { MessagesDataSource } from './messages-data';
-import { AuthService } from '../core/services/auth.service';
+import { HttpClient } from '@angular/common/http'
+import { Component, OnInit } from '@angular/core'
+import { MessagesDataSource } from './messages-data'
+import { AuthService } from '../core/services/auth.service'
 
 @Component({
   selector: 'home',
