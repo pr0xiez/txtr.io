@@ -1,11 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { SentMessagesDataSource } from './sent.data';
+import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { AuthService } from "../../core/services/auth.service";
 
 @Component({
-  templateUrl: 'sent.component.html'
+  templateUrl: 'sent.component.html',
+  styleUrls: ['sent.component.scss']
 })
 
-export class SentComponent implements OnInit {
-  constructor() { }
-
-  ngOnInit() { }
+export class SentComponent {
+  constructor(public httpClient: HttpClient, public authService: AuthService) { }
+  displayedColumns = ['id', 'messageId', 'from', 'to', 'portalCode', 'scheduledDate']
+  messages = new SentMessagesDataSource(this.httpClient, this.authService)
 }

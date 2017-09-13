@@ -46,6 +46,45 @@ export class Queries {
         updatedAt
       }
     }
-    `
-	}
+    `,
+  queuedMessages: `
+    query QueuedMessages {
+      queuedMsgs {
+        id
+        fromNumber
+        toNumber
+        messageId
+        templateVars
+        sendAt
+        customer {
+          id
+          firstName
+          lastName
+          phoneNumber
+          email
+          timezone
+          createdAt
+          updatedAt
+        }
+        txtrClient {
+          id
+          name
+          createdAt
+          updatedAt
+        }
+        msgType {
+          id
+          name
+          template
+          sendAfterHour
+          sendBeforeHour
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+    }
+  `
+  }
 }

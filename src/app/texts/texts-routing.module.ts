@@ -1,14 +1,18 @@
+import { TypeComponent } from './type/type.component';
 import { ReceivedComponent } from './received/received.component';
 import { SentComponent } from './sent/sent.component';
-import { QueuedMessagesComponent } from './queued/queued.component'
+import { QueuedComponent } from './queued/queued.component'
 import { CanActivateGuard } from './can-activate.guard'
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 
 
 const routes: Routes = [
-	{ path: '', pathMatch: 'full', redirectTo: 'queued'}, // queued Msgs is default page
-  { path:'queued',  component: QueuedMessagesComponent },
+	{ path: '', pathMatch: 'full', redirectTo: 'sent'},
+	{ path:'queued',  component: QueuedComponent, canActivate: [CanActivateGuard] },
+	{ path:'sent',  component: SentComponent, canActivate: [CanActivateGuard] },
+	{ path:'received',  component: ReceivedComponent, canActivate: [CanActivateGuard] },
+	{ path:'type',  component: TypeComponent, canActivate: [CanActivateGuard] },
 	{ path: '**', pathMatch: 'full', redirectTo: ''}
 ]
 
@@ -20,8 +24,9 @@ const routes: Routes = [
 
 export class TextsRoutingModule {
 	static components = [
-		QueuedMessagesComponent,
+		QueuedComponent,
 		SentComponent,
-		ReceivedComponent
+		ReceivedComponent,
+		TypeComponent
 	]
 }

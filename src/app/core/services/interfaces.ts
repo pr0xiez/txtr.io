@@ -1,3 +1,4 @@
+import { IQueuedMessagesR } from './../../texts/interfaces';
 import { ISentMessagesR } from "../../texts/interfaces"
 
 export interface IUserLogin {
@@ -12,4 +13,8 @@ export interface IHttpResponse<T> {
 
 export interface ISentMessages {
   sentMsgs: ISentMessagesR
+}
+
+export interface IQueuedMessages {
+  queuedMsgs: IQueuedMessagesR
 }
