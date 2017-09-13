@@ -1,4 +1,3 @@
-import { MessagesService } from './services/messages.service';
 import { SessionStorageService } from './services/session-storage.service';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -14,7 +13,6 @@ import { HttpInterceptorService } from "./http.interceptors";
   providers: [ 
     AuthService,
     SessionStorageService,
-    MessagesService,
     { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}
   ]
 })
