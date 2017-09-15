@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "build:aot": "ngc -p tsconfig-aot.json && rollup -c rollup-config.js",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
