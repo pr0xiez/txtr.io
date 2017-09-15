@@ -14,6 +14,6 @@ import { AuthService } from '../../core/services/auth.service'
 
 export class QueuedComponent {
   constructor(public httpClient: HttpClient, public authService: AuthService) { }
-  displayedColumns = ['id', 'messageId', 'from', 'to', 'portalCode', 'scheduledDate']
+  displayedColumns = ['id', 'messageId', 'to', 'templateVars', 'sendAt']
   messages = new QueuedDataSource(this.httpClient, this.authService)
 }

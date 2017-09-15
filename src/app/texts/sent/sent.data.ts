@@ -10,7 +10,6 @@ export class SentMessagesDataSource {
   constructor(private httpClient: HttpClient, private authService: AuthService) {
     this.getSentMessages().subscribe()
   }
-  messages
   messages$: Subject<any[]> = new Subject
   
   messagesChanged(msgs) {

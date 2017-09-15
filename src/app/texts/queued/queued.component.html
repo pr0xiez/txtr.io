@@ -15,12 +15,6 @@
     <md-cell *mdCellDef="let element"> {{element.messageId}} </md-cell>
   </ng-container>
 
-  <!-- From Column -->
-  <ng-container mdColumnDef="from">
-    <md-header-cell *mdHeaderCellDef> From </md-header-cell>
-    <md-cell *mdCellDef="let element"> {{element.fromNumber}} </md-cell>
-  </ng-container>
-
   <!-- To Column -->
   <ng-container mdColumnDef="to">
     <md-header-cell *mdHeaderCellDef> To </md-header-cell>
@@ -28,15 +22,15 @@
   </ng-container>
 
   <!-- PortalCode Column -->
-  <ng-container mdColumnDef="portalCode">
-    <md-header-cell *mdHeaderCellDef> PortalCode </md-header-cell>
-    <md-cell *mdCellDef="let element"> {{element.templateVars.portalCode}} </md-cell>
+  <ng-container mdColumnDef="templateVars">
+    <md-header-cell *mdHeaderCellDef> Template Vars </md-header-cell>
+    <md-cell *mdCellDef="let element"> {{element.templateVars | json}} </md-cell>
   </ng-container>
 
   <!-- ScheduledTime Column -->
-  <ng-container mdColumnDef="scheduledDate">
-    <md-header-cell *mdHeaderCellDef> ScheduledDate </md-header-cell>
-    <md-cell *mdCellDef="let element"> {{element.templateVars.scheduledTime | json}} </md-cell>
+  <ng-container mdColumnDef="sendAt">
+    <md-header-cell *mdHeaderCellDef> Send At </md-header-cell>
+    <md-cell *mdCellDef="let element"> {{element.sendAt}} </md-cell>
   </ng-container>
 
   <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>

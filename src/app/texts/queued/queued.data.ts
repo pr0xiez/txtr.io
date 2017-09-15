@@ -13,7 +13,6 @@ export class QueuedDataSource {
   constructor(private httpClient: HttpClient, private authService: AuthService) {
     this.getQueuedMessages().subscribe()
   }
-  messages
   messages$: Subject<any[]> = new Subject
   
   messagesChanged(msgs) {
