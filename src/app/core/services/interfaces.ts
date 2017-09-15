@@ -1,5 +1,4 @@
-import { IQueuedMessagesR } from './../../texts/interfaces';
-import { ISentMessagesR } from "../../texts/interfaces"
+import { IMessageTypesR, IQueuedMessagesR, ISentMessagesR } from './../../texts/interfaces'
 
 export interface IUserLogin {
   email: string,
@@ -17,4 +16,8 @@ export interface ISentMessages {
 
 export interface IQueuedMessages {
   queuedMsgs: IQueuedMessagesR
+}
+
+export interface IMessageTypes {
+  msgTypes: IMessageTypesR
 }

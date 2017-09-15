@@ -1,4 +1,3 @@
-import { OnInit } from '@angular/core'
 import { Observable } from 'rxjs/Rx'
 import { HttpClient } from '@angular/common/http'
 import { Queries } from '../../core/services/queries'
@@ -10,17 +9,12 @@ import { IHttpResponse, ISentMessages, IQueuedMessages } from '../../core/servic
  * @description handles data stream needed by queued component
  */
 
-export class QueuedDataSource implements OnInit {
+export class QueuedDataSource {
   constructor(private httpClient: HttpClient, private authService: AuthService) {
-    console.log('constructor MessagesDataSource')
     this.getQueuedMessages().subscribe()
   }
   messages
   messages$: Subject<any[]> = new Subject
-
-  ngOnInit() {
-    console.log('ngOnInit MessagesDataSource')
-  }
   
   messagesChanged(msgs) {
     this.messages$.next(msgs)

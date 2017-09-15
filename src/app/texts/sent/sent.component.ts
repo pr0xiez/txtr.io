@@ -10,6 +10,6 @@ import { AuthService } from "../../core/services/auth.service";
 
 export class SentComponent {
   constructor(public httpClient: HttpClient, public authService: AuthService) { }
-  displayedColumns = ['id', 'messageId', 'from', 'to', 'portalCode', 'scheduledDate']
+  displayedColumns = ['id', 'messageId', 'to', 'portalCode', 'scheduledDate']
   messages = new SentMessagesDataSource(this.httpClient, this.authService)
 }

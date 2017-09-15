@@ -1,1 +1,38 @@
-Text Message Type Component
+<md-table class="mat-elevation-z8" #table [dataSource]="messageTypes">
+  
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- ID Column -->
+    <ng-container mdColumnDef="id">
+      <md-header-cell *mdHeaderCellDef> ID </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.id}} </md-cell>
+    </ng-container>
+  
+    <!-- MessageID Column -->
+    <ng-container mdColumnDef="name">
+      <md-header-cell *mdHeaderCellDef> Name </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.name}} </md-cell>
+    </ng-container>
+  
+    <!-- To Column -->
+    <ng-container mdColumnDef="sendAfter">
+      <md-header-cell *mdHeaderCellDef> Send After </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.sendAfterHour}} </md-cell>
+    </ng-container>
+  
+    <!-- PortalCode Column -->
+    <ng-container mdColumnDef="sendBefore">
+      <md-header-cell *mdHeaderCellDef> Send Before </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.sendBeforeHour}} </md-cell>
+    </ng-container>
+  
+    <!-- ScheduledTime Column -->
+    <ng-container mdColumnDef="template">
+      <md-header-cell *mdHeaderCellDef> Template </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.template}} </md-cell>
+    </ng-container>
+  
+    <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
+    <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
+  </md-table>

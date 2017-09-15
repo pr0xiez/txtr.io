@@ -1,16 +1,19 @@
-import { ISentMessagesR } from '../interfaces';
+import { IMessageType } from '../interfaces';
 import { Observable } from 'rxjs/Rx'
 import { HttpClient } from '@angular/common/http'
 import { Queries } from '../../core/services/queries'
 import { Subject } from 'rxjs/Subject'
 import { AuthService } from '../../core/services/auth.service'
-import { IHttpResponse, ISentMessages } from '../../core/services/interfaces'
+import { IHttpResponse, IMessageTypes, IQueuedMessages, ISentMessages } from '../../core/services/interfaces';
+/**
+ * @author ADH - 9.13.17 - <alex.hall@united-installs.com>
+ * @description handles data stream needed by queued component
+ */
 
-export class SentMessagesDataSource {
+export class TypesDataSource {
   constructor(private httpClient: HttpClient, private authService: AuthService) {
-    this.getSentMessages().subscribe()
+    this.getQueuedMessages().subscribe()
   }
-  messages
   messages$: Subject<any[]> = new Subject
   
   messagesChanged(msgs) {
@@ -25,15 +28,15 @@ export class SentMessagesDataSource {
     // TODO ??
   }
 
-  getSentMessages() {
+  getQueuedMessages() {
     const body = {
-      query: Queries.queries.sentMessages
+      query: Queries.queries.messageTypes
     }
 
-    return this.httpClient.post<IHttpResponse<ISentMessages>>(this.authService.endpointURL, body)
+    return this.httpClient.post<IHttpResponse<IMessageTypes>>(this.authService.endpointURL, body)
       .map(res => {
-        console.log('getSentMessages', res)
-        this.messagesChanged(res.data.sentMsgs)
+        console.log('getMessageTypes', res)
+        this.messagesChanged(res.data.msgTypes)
         return res
       })
       

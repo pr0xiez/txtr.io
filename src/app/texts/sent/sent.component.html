@@ -11,14 +11,8 @@
   
     <!-- MessageID Column -->
     <ng-container mdColumnDef="messageId">
-      <md-header-cell *mdHeaderCellDef> MessageID </md-header-cell>
-      <md-cell *mdCellDef="let element"> {{element.messageId}} </md-cell>
-    </ng-container>
-  
-    <!-- From Column -->
-    <ng-container mdColumnDef="from">
-      <md-header-cell *mdHeaderCellDef> From </md-header-cell>
-      <md-cell *mdCellDef="let element"> {{element.fromNumber}} </md-cell>
+      <md-header-cell *mdHeaderCellDef class="longTableColumn"> MessageID </md-header-cell>
+      <md-cell *mdCellDef="let element" class="longTableColumn"> {{element.messageId}} </md-cell>
     </ng-container>
   
     <!-- To Column -->
