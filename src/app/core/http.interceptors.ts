@@ -1,4 +1,3 @@
-import { SessionStorageService } from './services/session-storage.service';
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
@@ -8,12 +7,11 @@ import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class HttpInterceptorService implements HttpInterceptor {
-  constructor(private storage: SessionStorageService) {}
   token: string
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (sessionStorage.getItem('token')) {
-      this.token = this.storage.getDecryptedItem('token')
+      this.token = sessionStorage.getItem('token')
     }
     const _req = req.clone({setHeaders: {authentication: this.token}})
     

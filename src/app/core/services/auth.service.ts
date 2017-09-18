@@ -1,4 +1,3 @@
-import { SessionStorageService } from './session-storage.service';
 import { HttpResponse } from '@angular/common/http/src/response';
 import { IHttpResponse, IUserLogin } from './interfaces';
 import { Injectable } from '@angular/core';
@@ -18,7 +17,7 @@ export type UserType = 'admin' | 'default' | 'disabled'
 
 @Injectable()
 export class AuthService {
-  constructor(private httpClient: HttpClient, private storage: SessionStorageService, private router: Router) {
+  constructor(private httpClient: HttpClient, private router: Router) {
     this.isAuthenticated = sessionStorage.getItem('token') ? true : false
   }
   endpointURL: string = 'https://ui-txtr.mybluemix.net/graphql'
@@ -37,8 +36,7 @@ export class AuthService {
         if (res.data.credentials.token) {
           console.log('token', res.data.credentials.token)
           this.isAuthenticated = true
-          this.storage.setEncryptedItem('token', res.data.credentials.token)
-          console.log(this.storage.getDecryptedItem('token'))
+          sessionStorage.setItem('token', res.data.credentials.token)
         }
         (this.redirectUrl != null) ? this.router.navigate([this.redirectUrl]) : this.router.navigate(['texts'])
       })
@@ -46,6 +44,6 @@ export class AuthService {
 
   logout() {
     this.isAuthenticated = false
-    this.storage.clearStorage()
+    sessionStorage.clear()
   }
 }

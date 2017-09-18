@@ -42,7 +42,7 @@ openSnackBar(message: string, extraClasses?: string[], action?: string) {
     })
 }
 
-submit(loginForm) {
+submit(loginForm: any) {
     const userCredentials = { //todo add interface
         email: loginForm.controls.email.value,
         password: loginForm.controls.password.value
@@ -52,7 +52,7 @@ submit(loginForm) {
        .subscribe(res => this.onNext(res), this.onError(), this.onComplete())
 }
 
-onNext(x) { // called every time data is emitted from Observable
+onNext(x: any) { // called every time data is emitted from Observable
     console.log(x)
 }
 
