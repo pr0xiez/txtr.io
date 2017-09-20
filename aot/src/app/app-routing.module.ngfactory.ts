@@ -34,8 +34,10 @@ export const AppRoutingModuleNgFactory:i0.NgModuleFactory<i1.AppRoutingModule> =
           i0.ɵmpd(512,i3.Location,i3.Location,[i3.LocationStrategy]),i0.ɵmpd(512,i0.NgModuleFactoryLoader,
               i0.SystemJsNgModuleLoader,[i0.Compiler,[2,i0.SystemJsNgModuleLoaderConfig]]),
           i0.ɵmpd(1024,i2.ROUTES,() => {
-            return [[{path:'',pathMatch:'full',redirectTo:'login'},{path:'texts',loadChildren:'app/texts/texts.module#TextsModule'},
-                {path:'**',pathMatch:'full',redirectTo:'login'}]];
+            return [[{path:'',pathMatch:'full',redirectTo:'login'},{path:'sent',pathMatch:'full',
+                redirectTo:'sent'},{path:'queued',pathMatch:'full',redirectTo:'queued'},
+                {path:'type',pathMatch:'full',redirectTo:'type'},{path:'**',pathMatch:'full',
+                    redirectTo:'login'}]];
           },([] as any[])),i0.ɵmpd(1024,i2.Router,i2.ɵe,[i0.ApplicationRef,i2.UrlSerializer,
               i2.ChildrenOutletContexts,i3.Location,i0.Injector,i0.NgModuleFactoryLoader,
               i0.Compiler,i2.ROUTES,i2.ROUTER_CONFIGURATION,[2,i2.UrlHandlingStrategy],
@@ -43,4 +45,4 @@ export const AppRoutingModuleNgFactory:i0.NgModuleFactory<i1.AppRoutingModule> =
               [[2,i2.ɵa],[2,i2.Router]]),i0.ɵmpd(512,i1.AppRoutingModule,i1.AppRoutingModule,
               ([] as any[]))]);
     });
-//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiQzovVXNlcnMvQWxleC9Db2RlL0phdmFTY3JpcHQvdHh0ci5pby9zcmMvYXBwL2FwcC1yb3V0aW5nLm1vZHVsZS5uZ2ZhY3RvcnkudHMiLCJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJuZzovLy9DOi9Vc2Vycy9BbGV4L0NvZGUvSmF2YVNjcmlwdC90eHRyLmlvL3NyYy9hcHAvYXBwLXJvdXRpbmcubW9kdWxlLnRzIl0sInNvdXJjZXNDb250ZW50IjpbIiAiXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OzsifQ==
+//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiQzovVXNlcnMvQWxleC9Db2RlL0phdmFTY3JpcHQvdHh0ci5pby9zcmMvYXBwL2FwcC1yb3V0aW5nLm1vZHVsZS5uZ2ZhY3RvcnkudHMiLCJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJuZzovLy9DOi9Vc2Vycy9BbGV4L0NvZGUvSmF2YVNjcmlwdC90eHRyLmlvL3NyYy9hcHAvYXBwLXJvdXRpbmcubW9kdWxlLnRzIl0sInNvdXJjZXNDb250ZW50IjpbIiAiXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OyJ9

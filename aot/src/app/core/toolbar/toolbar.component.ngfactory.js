@@ -23,7 +23,7 @@ export function View_ToolbarComponent_0(_l) {
     return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, null, null, 39, 'md-toolbar', [['class', 'mat-toolbar'], ['role', 'toolbar']], null, null, null, i2.View_MdToolbar_0, i2.RenderType_MdToolbar)), i1.ɵdid(16384, null, 0, i3.MdPrefixRejector, [[2, i3.MATERIAL_COMPATIBILITY_MODE], i1.ElementRef], null, null), i1.ɵdid(49152, null, 0, i3.MdToolbar, [i1.Renderer2, i1.ElementRef], null, null), (_l()(), i1.ɵted(0, ['\n  '])), (_l()(), i1.ɵeld(0, null, 0, 1, 'p', [['class', 'title']], null, null, null, null, null)), (_l()(), i1.ɵted(null, ['--- txtr.io --- '])),
         (_l()(), i1.ɵted(0, ['\n  '])), (_l()(), i1.ɵeld(0, null, 0, 22, 'md-nav-list', [['class', 'mat-nav-list'], ['role', 'list']], null, null, null, i2.View_MdList_0, i2.RenderType_MdList)), i1.ɵdid(16384, null, 0, i3.MdPrefixRejector, [[2, i3.MATERIAL_COMPATIBILITY_MODE], i1.ElementRef], null, null),
         i1.ɵdid(49152, null, 0, i3.MdList, [], null, null),
-        i1.ɵdid(16384, null, 0, i3.MdNavListCssMatStyler, [], null, null), (_l()(), i1.ɵted(0, ['\n    '])), (_l()(), i1.ɵeld(0, null, 0, 4, 'a', [['class', 'mat-list-item'], ['disableRipple', 'true'], ['href', '/texts/sent'],
+        i1.ɵdid(16384, null, 0, i3.MdNavListCssMatStyler, [], null, null), (_l()(), i1.ɵted(0, ['\n    '])), (_l()(), i1.ɵeld(0, null, 0, 4, 'a', [['class', 'mat-list-item'], ['disableRipple', 'true'], ['href', '/sent'],
             ['md-list-item', ''], ['role', 'listitem']], null, [[null,
                 'focus'], [null, 'blur']], function (_v, en, $event) {
             var ad = true;
@@ -39,7 +39,7 @@ export function View_ToolbarComponent_0(_l) {
         }, i2.View_MdListItem_0, i2.RenderType_MdListItem)), i1.ɵdid(1097728, null, 2, i3.MdListItem, [i1.Renderer2, i1.ElementRef, [2, i3.MdList], [2, i3.MdNavListCssMatStyler]], { disableRipple: [0, 'disableRipple'] }, null), i1.ɵqud(603979776, 1, { _lines: 1 }),
         i1.ɵqud(335544320, 2, { _hasAvatar: 0 }), (_l()(), i1.ɵted(2, ['Sent Texts'])), (_l()(),
             i1.ɵted(0, ['\n    '])), (_l()(), i1.ɵeld(0, null, 0, 4, 'a', [['class',
-                'mat-list-item'], ['disableRipple', 'true'], ['href', '/texts/queued'], ['md-list-item',
+                'mat-list-item'], ['disableRipple', 'true'], ['href', '/queued'], ['md-list-item',
                 ''], ['role', 'listitem']], null, [[null, 'focus'], [null,
                 'blur']], function (_v, en, $event) {
             var ad = true;
@@ -55,7 +55,7 @@ export function View_ToolbarComponent_0(_l) {
         }, i2.View_MdListItem_0, i2.RenderType_MdListItem)), i1.ɵdid(1097728, null, 2, i3.MdListItem, [i1.Renderer2, i1.ElementRef, [2, i3.MdList], [2, i3.MdNavListCssMatStyler]], { disableRipple: [0, 'disableRipple'] }, null), i1.ɵqud(603979776, 3, { _lines: 1 }),
         i1.ɵqud(335544320, 4, { _hasAvatar: 0 }), (_l()(), i1.ɵted(2, ['Queued Texts'])), (_l()(),
             i1.ɵted(0, ['\n    '])), (_l()(), i1.ɵeld(0, null, 0, 4, 'a', [['class',
-                'mat-list-item'], ['disableRipple', 'true'], ['href', 'texts/type'], ['md-list-item',
+                'mat-list-item'], ['disableRipple', 'true'], ['href', '/type'], ['md-list-item',
                 ''], ['role', 'listitem']], null, [[null, 'focus'], [null,
                 'blur']], function (_v, en, $event) {
             var ad = true;

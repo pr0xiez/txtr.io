@@ -12,7 +12,7 @@ export class SentMessagesDataSource {
   }
   messages$: Subject<any[]> = new Subject
   
-  messagesChanged(msgs) {
+  messagesChanged(msgs: any) {
     this.messages$.next(msgs)
   }
   

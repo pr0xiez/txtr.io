@@ -36,7 +36,7 @@ var AuthService = (function () {
                 _this.isAuthenticated = true;
                 sessionStorage.setItem('token', res.data.credentials.token);
             }
-            (_this.redirectUrl != null) ? _this.router.navigate([_this.redirectUrl]) : _this.router.navigate(['texts']);
+            (_this.redirectUrl != null) ? _this.router.navigate([_this.redirectUrl]) : _this.router.navigate(['sent']);
         });
     };
     AuthService.prototype.logout = function () {

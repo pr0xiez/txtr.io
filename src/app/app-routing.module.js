@@ -8,7 +8,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 var app_routes = [
     { path: '', pathMatch: 'full', redirectTo: 'login' },
-    { path: 'texts', loadChildren: 'app/texts/texts.module#TextsModule' },
+    { path: 'sent', pathMatch: 'full', redirectTo: 'sent' },
+    { path: 'queued', pathMatch: 'full', redirectTo: 'queued' },
+    { path: 'type', pathMatch: 'full', redirectTo: 'type' },
+    // { path: 'texts', loadChildren: 'app/texts/texts.module#TextsModule' },
     // { path: 'callcenter', loadChildren: 'app/callcenter/callcenter.module#CallCenterModule' },
     { path: '**', pathMatch: 'full', redirectTo: 'login' } //catch any unfound routes and redirect to home page
 ];
