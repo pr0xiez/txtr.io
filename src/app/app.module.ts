@@ -1,3 +1,4 @@
+import { TextsModule } from './texts/texts.module';
 import { CoreModule } from './core/core.module'
 import { LoginModule } from './core/login/login.module'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -20,7 +21,8 @@ import { AppRoutingModule } from "./app-routing.module";
     SharedModule,
     AppRoutingModule,
     LoginModule,
-    ToolbarModule
+    ToolbarModule,
+    TextsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,8 +10,7 @@
     "lint": "ng lint --type-check --fix",
     "e2e": "ng e2e",
     "serve:prod": "lite-server -c bs-config.json",
-    "compileAOT": "ngc -p tsconfig-aot.json",
-    "build:aot": "compileAOT && rollup -c rollup-config.js",
+    "build:aot": "ngc -p tsconfig-aot.json && rollup -c rollup-config.js",
     "serve:aot": "lite-server -c bs-config.aot.json"
   },
   "private": true,

@@ -39,7 +39,7 @@ export class AuthService {
           this.isAuthenticated = true
           sessionStorage.setItem('token', res.data.credentials.token)
         }
-        (this.redirectUrl != null) ? this.router.navigate([this.redirectUrl]) : this.router.navigate(['texts'])
+        (this.redirectUrl != null) ? this.router.navigate([this.redirectUrl]) : this.router.navigate(['sent'])
       })
   }
 
