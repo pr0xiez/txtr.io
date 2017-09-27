@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint --type-check --fix",
     "e2e": "ng e2e",
-    "serve:prod": "lite-server -c bs-config.json"
+    "serve:prod": "lite-server -c bs-config.json",
+    "clean": "del-cli \"src/app/**/*.js\" \"src/app/**/*.js.map\" \"src/devDist\" \"src/dist\""
   },
   "private": true,
   "dependencies": {

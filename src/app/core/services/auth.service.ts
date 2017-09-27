@@ -20,7 +20,7 @@ export class AuthService {
   constructor(private httpClient: HttpClient, private router: Router) {
     this.isAuthenticated = sessionStorage.getItem('token') ? true : false
   }
-  endpointURL: string = 'https://ui-txtr.mybluemix.net/graphql'
+  endpointURL: string = 'https://txtr.mybluemix.net/graphql'
   isAuthenticated: boolean
   userType: UserType
   redirectUrl: string
