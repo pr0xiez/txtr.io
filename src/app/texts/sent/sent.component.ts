@@ -1,6 +1,7 @@
+import { MdPaginator } from '@angular/material';
 import { SentMessagesDataSource } from './sent.data';
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { AuthService } from "../../core/services/auth.service";
 
 @Component({
@@ -8,8 +9,14 @@ import { AuthService } from "../../core/services/auth.service";
   styleUrls: ['sent.component.scss']
 })
 
-export class SentComponent {
+export class SentComponent implements OnInit {
   constructor(public httpClient: HttpClient, public authService: AuthService) { }
+  ngOnInit() {
+    this.messagesSource = new SentMessagesDataSource(this.httpClient, this.authService, this.paginator)
+  }
+
+  @ViewChild(MdPaginator) paginator: MdPaginator
+
   displayedColumns = ['id', 'messageId', 'to', 'portalCode', 'scheduledDate']
-  messages = new SentMessagesDataSource(this.httpClient, this.authService)
+  messagesSource: SentMessagesDataSource | null
 }
