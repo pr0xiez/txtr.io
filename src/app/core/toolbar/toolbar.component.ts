@@ -1,11 +1,10 @@
-import { NaviagationService } from './../services/navigation.service';
-import { Observable } from 'rxjs/Rx';
-import { Component } from '@angular/core';
+import { Navigation } from './navigation'
+import { NaviagationService } from './../services/navigation.service'
+import { Observable } from 'rxjs/Rx'
+import { Component } from '@angular/core'
 import { Router, RouterLink, RouterLinkActive } from '@angular/router'
-
 import { Subscription } from 'rxjs/Subscription'
-
-import { AuthService, LoginLogoutText } from '../../core/services/auth.service';
+import { AuthService, LoginLogoutText } from '../../core/services/auth.service'
 
 @Component({
 	selector: 'toolbar',
@@ -15,8 +14,9 @@ import { AuthService, LoginLogoutText } from '../../core/services/auth.service';
 
 export class ToolbarComponent {
 	constructor(private router: Router,
-							private authService: AuthService,
-							private navigationService: NaviagationService) {}
+							private authService: AuthService) {}
+
+	nav: Navigation = new Navigation(this.router)
 
 	get loginLogoutText(): string {
 		return (this.authService.isAuthenticated) ? 'Logout' : 'Login'
