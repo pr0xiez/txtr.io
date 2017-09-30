@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router'
 
 const app_routes: Routes = [
 	{ path: '', pathMatch: 'full', redirectTo: 'login' },
-	{ path: 'texts', loadChildren: 'app/texts/texts.module#TextsModule' },
+	// { path: 'texts', loadChildren: 'app/texts/texts.module#TextsModule' },
 	// { path: 'callcenter', loadChildren: 'app/callcenter/callcenter.module#CallCenterModule' },
 	{ path: '**', pathMatch: 'full', redirectTo: 'login' } //catch any unfound routes and redirect to home page
 ]

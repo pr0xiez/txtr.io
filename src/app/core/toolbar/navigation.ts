@@ -4,14 +4,14 @@ export class Navigation {
   constructor(private router: Router) {}
 
   public navigateToSentTexts() {
-    this.router.navigate(['/texts/sent'])
+    this.router.navigate(['/sent'])
 	}
 	
   public navigateToQueuedTexts() {
-    this.router.navigate(['/texts/queued'])
+    this.router.navigate(['/queued'])
 	}
 	
   public navigateToTextTypes() {
-    this.router.navigate(['/texts/type'])
+    this.router.navigate(['/type'])
   }
 }

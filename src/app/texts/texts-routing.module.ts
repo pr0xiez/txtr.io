@@ -8,7 +8,7 @@ import { RouterModule, Routes } from '@angular/router'
 
 
 const routes: Routes = [
-	{ path: '', pathMatch: 'full', redirectTo: 'sent'},
+	{ path: '', pathMatch: 'full', redirectTo: 'queued'},
 	{ path:'queued',  component: QueuedComponent, canActivate: [CanActivateGuard] },
 	{ path:'sent',  component: SentComponent, canActivate: [CanActivateGuard] },
 	{ path:'received',  component: ReceivedComponent, canActivate: [CanActivateGuard] },

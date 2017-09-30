@@ -1,3 +1,4 @@
+import { TextsModule } from './texts/texts.module';
 import { CoreModule } from './core/core.module'
 import { LoginModule } from './core/login/login.module'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -17,9 +18,10 @@ import { AppRoutingModule } from "./app-routing.module";
   imports: [
     BrowserAnimationsModule,
     CoreModule,
+    LoginModule,
+    TextsModule,
     SharedModule,
     AppRoutingModule,
-    LoginModule,
     ToolbarModule
   ],
   providers: [],
