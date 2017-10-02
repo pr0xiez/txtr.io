@@ -1,5 +1,9 @@
+import { Observable } from 'rxjs/Observable'
+import 'rxjs/add/operator/debounceTime'
+import 'rxjs/add/operator/distinctUntilChanged'
+import 'rxjs/add/observable/fromEvent'
 import { HttpClient } from '@angular/common/http'
-import { Component, OnInit } from '@angular/core'
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core'
 import { QueuedDataSource } from './queued.data'
 import { AuthService } from '../../core/services/auth.service'
 /**
@@ -12,8 +16,21 @@ import { AuthService } from '../../core/services/auth.service'
   styleUrls: ['queued.component.scss']
 })
 
-export class QueuedComponent {
+export class QueuedComponent implements OnInit {
   constructor(public httpClient: HttpClient, public authService: AuthService) { }
-  displayedColumns = ['id', 'messageId', 'to', 'templateVars', 'sendAt']
-  messages = new QueuedDataSource(this.httpClient, this.authService)
+  displayedColumns: string[] = ['id', 'messageId', 'to', 'templateVars', 'sendAt']
+  messages: QueuedDataSource | null
+
+  @ViewChild('filter') filter: ElementRef
+
+  ngOnInit() {
+    this.messages = new QueuedDataSource(this.httpClient, this.authService)
+    Observable.fromEvent(this.filter.nativeElement, 'keyup')
+      .debounceTime(150)       // wait for user to stop typing for 300ms to initate search
+      .distinctUntilChanged()  // only fire if the value of the filter box is different than last time observable fired
+      .subscribe(() => {
+        if (!this.messages) { return }
+        this.messages.filter = this.filter.nativeElement.value
+      })
+  }
 }

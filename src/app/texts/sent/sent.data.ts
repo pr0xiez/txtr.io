@@ -24,16 +24,17 @@ export class SentMessagesDataSource {
     // TODO ??
   }
 
-  getSentMessages() {
+  getSentMessages () {
     const body = {
       query: Queries.queries.sentMessages
     }
 
-    return this.httpClient.post<IHttpResponse<ISentMessages>>(this.authService.endpointURL, body)
+    return this.httpClient.post<IHttpResponse<any>>(this.authService.endpointURL, body)
       .map(res => {
-        console.log('getSentMessages', res)
-        this.messagesChanged(res.data.sentMsgs)
-        return res
+        const messages = res.data.sentMsgs
+        console.log('getSentMessages', messages)
+        this.messagesChanged(messages)
+        return messages
       })
       
   }

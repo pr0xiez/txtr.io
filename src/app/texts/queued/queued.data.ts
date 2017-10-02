@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/Rx'
+import { BehaviorSubject, Observable } from 'rxjs/Rx';
 import { HttpClient } from '@angular/common/http'
 import { Queries } from '../../core/services/queries'
 import { Subject } from 'rxjs/Subject'
@@ -12,15 +12,32 @@ import { IHttpResponse, ISentMessages, IQueuedMessages } from '../../core/servic
 export class QueuedDataSource {
   constructor(private httpClient: HttpClient, private authService: AuthService) {
     this.getQueuedMessages().subscribe()
+    console.log(this.data)
   }
-  messages$: Subject<any[]> = new Subject
+  _filterChange = new BehaviorSubject('')
+  messages$: BehaviorSubject<IQueuedMessages[]> = new BehaviorSubject([])
+
+  get data(): IQueuedMessages[] { return this.messages$.value }
+  get filter(): string { return this._filterChange.value }
+  set filter(filter: string) { this._filterChange.next(filter) }
   
   messagesChanged(msgs) {
     this.messages$.next(msgs)
   }
   
   connect() {
-    return this.messages$.asObservable()
+    // return Observable.of(this.data)
+
+    const displayDataChanges = [
+      this.messages$,
+      this._filterChange
+    ]
+
+    return Observable.merge(...displayDataChanges).map(() => {
+      return this.data.slice().filter((x: any) => {
+        return x.toNumber.includes(this.filter) || x.id == this.filter
+      })
+    })
   }
 
   disconnect() {
@@ -37,7 +54,6 @@ export class QueuedDataSource {
         console.log('getQueuedMessages', res)
         this.messagesChanged(res.data.queuedMsgs)
         return res
-      })
-      
+      })  
   }
 }

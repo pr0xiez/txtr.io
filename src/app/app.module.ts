@@ -1,3 +1,4 @@
+import { ComponentsModule } from './components/components.module';
 import { TextsModule } from './texts/texts.module';
 import { CoreModule } from './core/core.module'
 import { LoginModule } from './core/login/login.module'
@@ -20,9 +21,10 @@ import { AppRoutingModule } from "./app-routing.module";
     CoreModule,
     LoginModule,
     TextsModule,
+    ComponentsModule,
     SharedModule,
     AppRoutingModule,
-    ToolbarModule
+    ToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

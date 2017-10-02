@@ -1,3 +1,9 @@
+<div fxLayoutAlign="center" class="example-header">
+  <md-form-field floatPlaceholder="never">
+    <input mdInput #filter placeholder="Filter users">
+  </md-form-field>
+</div>
+
 <md-table class="mat-elevation-z8" #table [dataSource]="messages">
 
   <!--- Note that these columns can be defined in any order.
@@ -30,7 +36,7 @@
   <!-- ScheduledTime Column -->
   <ng-container mdColumnDef="sendAt">
     <md-header-cell *mdHeaderCellDef> Send At </md-header-cell>
-    <md-cell *mdCellDef="let element"> {{element.sendAt}} </md-cell>
+    <md-cell *mdCellDef="let element"> {{element.sendAt | date}} </md-cell>
   </ng-container>
 
   <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
