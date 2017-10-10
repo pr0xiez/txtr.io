@@ -1,38 +1,38 @@
-<md-table class="mat-elevation-z8" #table [dataSource]="messageTypes">
+<mat-table class="mat-elevation-z8" #table [dataSource]="messageTypes">
   
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
   
     <!-- ID Column -->
-    <ng-container mdColumnDef="id">
-      <md-header-cell *mdHeaderCellDef> ID </md-header-cell>
-      <md-cell *mdCellDef="let element"> {{element.id}} </md-cell>
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
     </ng-container>
   
     <!-- MessageID Column -->
-    <ng-container mdColumnDef="name">
-      <md-header-cell *mdHeaderCellDef> Name </md-header-cell>
-      <md-cell *mdCellDef="let element"> {{element.name}} </md-cell>
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
     </ng-container>
   
     <!-- To Column -->
-    <ng-container mdColumnDef="sendAfter">
-      <md-header-cell *mdHeaderCellDef> Send After </md-header-cell>
-      <md-cell *mdCellDef="let element"> {{element.sendAfterHour}} </md-cell>
+    <ng-container matColumnDef="sendAfter">
+      <mat-header-cell *matHeaderCellDef> Send After </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.sendAfterHour}} </mat-cell>
     </ng-container>
   
     <!-- PortalCode Column -->
-    <ng-container mdColumnDef="sendBefore">
-      <md-header-cell *mdHeaderCellDef> Send Before </md-header-cell>
-      <md-cell *mdCellDef="let element"> {{element.sendBeforeHour}} </md-cell>
+    <ng-container matColumnDef="sendBefore">
+      <mat-header-cell *matHeaderCellDef> Send Before </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.sendBeforeHour}} </mat-cell>
     </ng-container>
   
     <!-- ScheduledTime Column -->
-    <ng-container mdColumnDef="template">
-      <md-header-cell *mdHeaderCellDef> Template </md-header-cell>
-      <md-cell *mdCellDef="let element"> {{element.template}} </md-cell>
+    <ng-container matColumnDef="template">
+      <mat-header-cell *matHeaderCellDef> Template </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.template}} </mat-cell>
     </ng-container>
   
-    <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
-    <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
-  </md-table>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
