@@ -1,13 +1,13 @@
-<md-toolbar>
+<mat-toolbar>
   <p class="title">--- txtr.io --- </p>
-  <md-nav-list>
-    <a md-list-item disableRipple="true" (click)="nav.navigateToSentTexts()">Sent Texts</a>
-    <a md-list-item disableRipple="true" (click)="nav.navigateToQueuedTexts()">Queued Texts</a>
-    <a md-list-item disableRipple="true" (click)="nav.navigateToTextTypes()">Text Types</a>
-  </md-nav-list>
+  <mat-nav-list>
+    <a mat-list-item disableRipple="true" (click)="nav.navigateToSentTexts()">Sent Texts</a>
+    <a mat-list-item disableRipple="true" (click)="nav.navigateToQueuedTexts()">Queued Texts</a>
+    <a mat-list-item disableRipple="true" (click)="nav.navigateToTextTypes()">Text Types</a>
+  </mat-nav-list>
   <span fxFlex></span>
   
-  <button md-raised-button color="primary" (click)="loginLogout()">
+  <button mat-raised-button color="primary" (click)="loginLogout()">
     {{loginLogoutText}}
   </button>
-</md-toolbar>
+</mat-toolbar>

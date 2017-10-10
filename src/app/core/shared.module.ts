@@ -1,5 +1,5 @@
 import { FlexLayoutModule } from '@angular/flex-layout'
-import { MaterialModule, MdInputModule, MdToolbarModule, MdTableModule, MdListModule } from '@angular/material'
+import { MatInputModule, MatToolbarModule, MatTableModule, MatListModule, MatSnackBarModule, MatButtonModule } from '@angular/material'
 import { ReactiveFormsModule } from '@angular/forms'
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
@@ -14,12 +14,13 @@ import { NgModule } from '@angular/core'
   exports: [
     CommonModule,
     ReactiveFormsModule,
-    MaterialModule,
     FlexLayoutModule,
-    MdInputModule,
-    MdToolbarModule,
-    MdTableModule,
-    MdListModule
+    MatInputModule,
+    MatToolbarModule,
+    MatTableModule,
+    MatListModule,
+    MatSnackBarModule,
+    MatButtonModule
   ],
   providers: [],
 })

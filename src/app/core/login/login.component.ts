@@ -1,6 +1,6 @@
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { MdSnackBar } from "@angular/material";
+import { MatSnackBar } from "@angular/material";
 import { AuthService } from "../services/auth.service";
 
 @Component({
@@ -10,7 +10,7 @@ import { AuthService } from "../services/auth.service";
 })
 
 export class LoginComponent implements OnInit {
-  constructor(public snackBar: MdSnackBar,
+  constructor(public snackBar: MatSnackBar,
               private formBuilder: FormBuilder,
               private authService: AuthService) { }
               

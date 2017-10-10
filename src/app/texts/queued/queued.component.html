@@ -1,44 +1,44 @@
 <div fxLayoutAlign="center" class="example-header">
-  <md-form-field floatPlaceholder="never">
-    <input mdInput #filter placeholder="Filter users">
-  </md-form-field>
+  <mat-form-field floatPlaceholder="never">
+    <input matInput #filter placeholder="Filter users">
+  </mat-form-field>
 </div>
 
-<md-table class="mat-elevation-z8" #table [dataSource]="messages">
+<mat-table class="mat-elevation-z8" #table [dataSource]="messages">
 
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
 
   <!-- ID Column -->
-  <ng-container mdColumnDef="id">
-    <md-header-cell *mdHeaderCellDef> ID </md-header-cell>
-    <md-cell *mdCellDef="let element"> {{element.id}} </md-cell>
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
   </ng-container>
 
   <!-- MessageID Column -->
-  <ng-container mdColumnDef="messageId">
-    <md-header-cell *mdHeaderCellDef> MessageID </md-header-cell>
-    <md-cell *mdCellDef="let element"> {{element.messageId}} </md-cell>
+  <ng-container matColumnDef="messageId">
+    <mat-header-cell *matHeaderCellDef> MessageID </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.messageId}} </mat-cell>
   </ng-container>
 
   <!-- To Column -->
-  <ng-container mdColumnDef="to">
-    <md-header-cell *mdHeaderCellDef> To </md-header-cell>
-    <md-cell *mdCellDef="let element"> {{element.toNumber}} </md-cell>
+  <ng-container matColumnDef="to">
+    <mat-header-cell *matHeaderCellDef> To </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.toNumber}} </mat-cell>
   </ng-container>
 
   <!-- PortalCode Column -->
-  <ng-container mdColumnDef="templateVars">
-    <md-header-cell *mdHeaderCellDef> Template Vars </md-header-cell>
-    <md-cell *mdCellDef="let element"> {{element.templateVars | json}} </md-cell>
+  <ng-container matColumnDef="templateVars">
+    <mat-header-cell *matHeaderCellDef> Template Vars </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.templateVars | json}} </mat-cell>
   </ng-container>
 
   <!-- ScheduledTime Column -->
-  <ng-container mdColumnDef="sendAt">
-    <md-header-cell *mdHeaderCellDef> Send At </md-header-cell>
-    <md-cell *mdCellDef="let element"> {{element.sendAt | date}} </md-cell>
+  <ng-container matColumnDef="sendAt">
+    <mat-header-cell *matHeaderCellDef> Send At </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.sendAt | date}} </mat-cell>
   </ng-container>
 
-  <md-header-row *mdHeaderRowDef="displayedColumns"></md-header-row>
-  <md-row *mdRowDef="let row; columns: displayedColumns;"></md-row>
-</md-table>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
