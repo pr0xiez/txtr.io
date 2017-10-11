@@ -12,8 +12,7 @@ const routes: Routes = [
 	{ path:'queued',  component: QueuedComponent, canActivate: [CanActivateGuard] },
 	{ path:'sent',  component: SentComponent, canActivate: [CanActivateGuard] },
 	{ path:'received',  component: ReceivedComponent, canActivate: [CanActivateGuard] },
-	{ path:'type',  component: TypeComponent, canActivate: [CanActivateGuard] },
-	{ path: '**', pathMatch: 'full', redirectTo: ''}
+	{ path:'type',  component: TypeComponent, canActivate: [CanActivateGuard] }
 ]
 
 @NgModule({

@@ -1,3 +1,4 @@
+import { PageNotFoundComponent } from './page-not-found.component';
 import { ComponentsModule } from './components/components.module';
 import { TextsModule } from './texts/texts.module';
 import { CoreModule } from './core/core.module'
@@ -14,16 +15,17 @@ import { AppRoutingModule } from "./app-routing.module";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserAnimationsModule,
     CoreModule,
     LoginModule,
-    TextsModule,
+    TextsModule,      // contains routing module - order of the routing modules DOES MATTER!!!
+    AppRoutingModule, // contains routing module - order of the routing modules DOES MATTER!!!
     ComponentsModule,
     SharedModule,
-    AppRoutingModule,
     ToolbarModule,
   ],
   providers: [],
