@@ -1,3 +1,4 @@
+import { IMessageTypesR } from './../interfaces';
 import { IMessageType } from '../interfaces';
 import { Observable } from 'rxjs/Rx'
 import { HttpClient } from '@angular/common/http'
@@ -39,6 +40,9 @@ export class TypesDataSource {
         this.messagesChanged(res.data.msgTypes)
         return res
       })
-      
+  }
+
+  trackById(index: number, item: IMessageTypesR): number { // return unique identifier of item
+    return item.id
   }
 }

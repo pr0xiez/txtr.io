@@ -29,13 +29,16 @@ export class SentMessagesDataSource {
       query: Queries.queries.sentMessages
     }
 
-    return this.httpClient.post<IHttpResponse<any>>(this.authService.endpointURL, body)
+    return this.httpClient.post<IHttpResponse<ISentMessages>>(this.authService.endpointURL, body)
       .map(res => {
         const messages = res.data.sentMsgs
         console.log('getSentMessages', messages)
         this.messagesChanged(messages)
         return messages
       })
-      
+  }
+
+  trackById(index: number, item: ISentMessagesR): number { // return unique identifier of item
+    return item.id
   }
 }

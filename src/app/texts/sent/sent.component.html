@@ -1,4 +1,4 @@
-<mat-table class="mat-elevation-z8" #table [dataSource]="messages">
+<mat-table class="mat-elevation-z8" #table [dataSource]="messages" [trackBy]="messages.trackById">
   
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->

@@ -1,3 +1,4 @@
+import { IQueuedMessagesR } from './../interfaces';
 import { BehaviorSubject, Observable } from 'rxjs/Rx';
 import { HttpClient } from '@angular/common/http'
 import { Queries } from '../../core/services/queries'
@@ -55,5 +56,9 @@ export class QueuedDataSource {
         this.messagesChanged(res.data.queuedMsgs)
         return res
       })  
+  }
+
+  trackById(index: number, item: IQueuedMessagesR): number { // return unique identifier of item
+    return item.id
   }
 }
