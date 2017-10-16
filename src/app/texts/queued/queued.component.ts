@@ -17,7 +17,7 @@ import { AuthService } from '../../core/services/auth.service'
 })
 
 export class QueuedComponent implements OnInit {
-  constructor(public httpClient: HttpClient, public authService: AuthService) { }
+  constructor(public httpClient: HttpClient, public authService: AuthService) {}
   displayedColumns: string[] = ['id', 'messageId', 'to', 'templateVars', 'sendAt']
   messages: QueuedDataSource | null
 

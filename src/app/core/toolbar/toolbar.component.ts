@@ -1,5 +1,4 @@
 import { Navigation } from './navigation'
-import { NaviagationService } from './../services/navigation.service'
 import { Observable } from 'rxjs/Rx'
 import { Component } from '@angular/core'
 import { Router, RouterLink, RouterLinkActive } from '@angular/router'

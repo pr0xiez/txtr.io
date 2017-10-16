@@ -8,11 +8,11 @@ import { RouterModule, Routes } from '@angular/router'
 
 
 const routes: Routes = [
-	{ path: '', pathMatch: 'full', redirectTo: 'queued'},
-	{ path:'queued',  component: QueuedComponent, canActivate: [CanActivateGuard] },
-	{ path:'sent',  component: SentComponent, canActivate: [CanActivateGuard] },
-	{ path:'received',  component: ReceivedComponent, canActivate: [CanActivateGuard] },
-	{ path:'type',  component: TypeComponent, canActivate: [CanActivateGuard] }
+	{ path: '', pathMatch: 'full', redirectTo: 'texts/queued'},
+	{ path:'texts/queued',  component: QueuedComponent, canActivate: [CanActivateGuard] },
+	{ path:'texts/sent',  component: SentComponent, canActivate: [CanActivateGuard] },
+	{ path:'texts/received',  component: ReceivedComponent, canActivate: [CanActivateGuard] },
+	{ path:'texts/type',  component: TypeComponent, canActivate: [CanActivateGuard] }
 ]
 
 @NgModule({

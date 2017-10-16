@@ -1,4 +1,3 @@
-import { NaviagationService } from './services/navigation.service';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from './shared.module';
@@ -12,7 +11,6 @@ import { HttpInterceptorService } from "./http.interceptors";
   exports: [HttpClientModule],
   providers: [ 
     AuthService,
-    NaviagationService,
     { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}
   ]
 })
