@@ -1,6 +1,6 @@
 import { TextsRoutingModule } from './texts-routing.module';
 import { NgModule } from '@angular/core';
-import { SharedModule } from '../core/shared.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [ TextsRoutingModule, SharedModule ],

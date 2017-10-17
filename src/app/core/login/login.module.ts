@@ -1,4 +1,4 @@
-import { SharedModule } from '../shared.module';
+import { SharedModule } from '../../shared/shared.module';
 import { NgModule } from '@angular/core'
 import { BrowserModule  } from '@angular/platform-browser'
 import { HttpModule } from '@angular/http'
