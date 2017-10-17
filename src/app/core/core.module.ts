@@ -1,3 +1,4 @@
+import { CanActivateGuard } from './guards/can-activate.guard';
 import { RouterModule } from '@angular/router'
 import { CommonModule } from '@angular/common'
 import { SharedModule } from '../shared/shared.module'
@@ -18,6 +19,7 @@ import { EnsureModuleLoadedOnceGuard } from './ensureModuleLoadedOnceGuard'
   exports: [HttpClientModule],
   providers: [ 
     AuthService,
+    CanActivateGuard,
     { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}
   ]
 })

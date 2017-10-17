@@ -2,7 +2,7 @@ import { TypeComponent } from './type/type.component';
 import { ReceivedComponent } from './received/received.component';
 import { SentComponent } from './sent/sent.component';
 import { QueuedComponent } from './queued/queued.component'
-import { CanActivateGuard } from './can-activate.guard'
+import { CanActivateGuard } from '../core/guards/can-activate.guard'
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 
@@ -17,8 +17,7 @@ const routes: Routes = [
 
 @NgModule({
 	imports: [RouterModule.forChild(routes)],
-	exports: [RouterModule],
-	providers: [CanActivateGuard]
+	exports: [RouterModule]
 })
 
 export class TextsRoutingModule {
