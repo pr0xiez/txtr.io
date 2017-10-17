@@ -1,3 +1,4 @@
+import { CustomersModule } from './customers/customers.module';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { ComponentsModule } from './components/components.module';
 import { TextsModule } from './texts/texts.module';
@@ -23,12 +24,12 @@ import { AppRoutingModule } from "./app-routing.module";
     CoreModule,
     LoginModule,
     TextsModule,      // contains routing module - order of the routing modules DOES MATTER!!!
+    CustomersModule,      // contains routing module - order of the routing modules DOES MATTER!!!
     AppRoutingModule, // contains routing module - order of the routing modules DOES MATTER!!!
     ComponentsModule,
     SharedModule,
     ToolbarModule,
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
