@@ -12,8 +12,8 @@ export interface ICustomer {
   phoneNumber: string
   email: string
   timezone: string
-  createdAt: string
-  updatedAt: string
+  createdAt?: string
+  updatedAt?: string
 }
 export interface ITxtrClient {
   id: number

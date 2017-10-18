@@ -121,6 +121,18 @@ export class Queries {
         updatedAt
       }
     }
+  `,
+  customers: `
+  {
+    customers {
+      id
+      firstName
+      lastName
+      phoneNumber
+      timezone
+      email
+    } 
+  }
   `
   }
 }

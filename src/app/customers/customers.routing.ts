@@ -1,3 +1,4 @@
+import { CardComponent } from './card/card.component';
 import { CanActivateGuard } from '../core/guards/can-activate.guard';
 import { CustomersComponent } from './customers.component';
 import { NgModule } from '@angular/core'
@@ -14,6 +15,7 @@ const routes: Routes = [
 
 export class CustomersRoutingModule {
 	static components = [
-    CustomersComponent
+		CustomersComponent,
+		CardComponent
 	]
 }

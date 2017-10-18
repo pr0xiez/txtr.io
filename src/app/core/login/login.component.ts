@@ -11,10 +11,10 @@ import { AuthService } from "../services/auth.service";
 
 export class LoginComponent implements OnInit {
 	constructor(public snackBar: MatSnackBar,
-		private formBuilder: FormBuilder,
-		private authService: AuthService) { }
+							private formBuilder: FormBuilder,
+							private authService: AuthService) { }
 
-	loginForm: FormGroup
+	public loginForm: FormGroup
 
 	ngOnInit() {
 		this.buildForm()

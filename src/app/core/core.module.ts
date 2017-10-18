@@ -8,6 +8,7 @@ import { AuthService } from "./services/auth.service"
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { HttpInterceptorService } from "./http.interceptors"
 import { EnsureModuleLoadedOnceGuard } from './ensureModuleLoadedOnceGuard'
+import { CustomersService } from './services/customers.service';
 
 /**
  * @author ADH - 9.7.17 - <alex.hall@united-installs.com>
@@ -21,6 +22,7 @@ import { EnsureModuleLoadedOnceGuard } from './ensureModuleLoadedOnceGuard'
   providers: [ 
     AuthService,
     NavigationService,
+    CustomersService,
     CanActivateGuard,
     { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}
   ]
