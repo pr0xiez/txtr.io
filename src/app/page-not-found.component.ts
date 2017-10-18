@@ -1,10 +1,10 @@
+import { NavigationService } from './core/services/navigation.service'
 import { Component } from '@angular/core'
-import { Router } from '@angular/router';
-
+import { Router } from '@angular/router'
 @Component({
   template: `
     <h1>Oops! Page Not Found!</h1>
-    <button mat-raised-button color="primary" (click)="router.navigate(['queued'])">Go to Home</button>
+    <button mat-raised-button color="primary" (click)="nS.navigateToQueuedTextsPage()">Go to Home</button>
   `,
   styles: [
     `
@@ -19,5 +19,5 @@ import { Router } from '@angular/router';
   ]
 })
 export class PageNotFoundComponent {
-  constructor(public router: Router) {}
+  constructor(public nS: NavigationService) {}
 }

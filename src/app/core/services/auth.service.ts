@@ -1,3 +1,4 @@
+import { NavigationService } from './navigation.service';
 import { HttpResponse } from '@angular/common/http/src/response';
 import { IHttpResponse, IUserLogin } from './interfaces';
 import { Injectable } from '@angular/core';
@@ -17,7 +18,7 @@ export type UserType = 'admin' | 'default' | 'disabled'
 
 @Injectable()
 export class AuthService {
-  constructor(private httpClient: HttpClient, private router: Router) {
+  constructor(private httpClient: HttpClient, private router: Router, private nS: NavigationService) {
     this.isAuthenticated = sessionStorage.getItem('token') ? true : false
   }
   endpointURL: string = 'https://txtr.mybluemix.net/graphql'
@@ -38,7 +39,7 @@ export class AuthService {
           this.isAuthenticated = true
           sessionStorage.setItem('token', res.data.credentials.token)
         }
-        (this.redirectUrl != null) ? this.router.navigate([this.redirectUrl]) : this.router.navigate(['texts/queued'])
+        (this.redirectUrl != null) ? this.router.navigate([this.redirectUrl]) : this.nS.navigateToQueuedTextsPage()
       })
   }
 

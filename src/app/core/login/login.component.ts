@@ -4,68 +4,66 @@ import { MatSnackBar } from "@angular/material";
 import { AuthService } from "../services/auth.service";
 
 @Component({
-  selector: 'login',
-  templateUrl: 'login.component.html',
-  styleUrls: ['login.component.scss']
+	selector: 'login',
+	templateUrl: 'login.component.html',
+	styleUrls: ['login.component.scss']
 })
 
 export class LoginComponent implements OnInit {
-  constructor(public snackBar: MatSnackBar,
-              private formBuilder: FormBuilder,
-              private authService: AuthService) { }
-              
-  loginForm: FormGroup
+	constructor(public snackBar: MatSnackBar,
+		private formBuilder: FormBuilder,
+		private authService: AuthService) { }
 
+	loginForm: FormGroup
 
-  ngOnInit() {
-    this.buildForm()
-}
+	ngOnInit() {
+		this.buildForm()
+	}
 
-// openForgotPasswordDialog() {
-//     this.dialog.open(ForgotPasswordComponent, {
-//         height: '250px',
-//         width: '600px'
-//     })
-// }
+	// openForgotPasswordDialog() {
+	//     this.dialog.open(ForgotPasswordComponent, {
+	//         height: '250px',
+	//         width: '600px'
+	//     })
+	// }
 
-buildForm() {
-    this.loginForm = this.formBuilder.group({
-        email: '',
-        password: ''
-    })
-}
+	buildForm() {
+		this.loginForm = this.formBuilder.group({
+			email: '',
+			password: ''
+		})
+	}
 
-openSnackBar(message: string, extraClasses?: string[], action?: string) {
-    this.snackBar.open(message, action, {
-        duration: 3000,
-        extraClasses: extraClasses
-    })
-}
+	openSnackBar(message: string, extraClasses?: string[], action?: string) {
+		this.snackBar.open(message, action, {
+			duration: 3000,
+			extraClasses: extraClasses
+		})
+	}
 
-submit(loginForm: any) {
-    const userCredentials = { //todo add interface
-        email: loginForm.controls.email.value,
-        password: loginForm.controls.password.value
-    }
+	submit(loginForm: any) {
+		const userCredentials = { //todo add interface
+			email: loginForm.controls.email.value,
+			password: loginForm.controls.password.value
+		}
 
-    this.authService.login(userCredentials)
-       .subscribe(res => this.onNext(res), this.onError(), this.onComplete())
-}
+		this.authService.login(userCredentials)
+			.subscribe(res => this.onNext(res), this.onError(), this.onComplete())
+	}
 
-onNext(x: any) { // called every time data is emitted from Observable
-    console.log(x)
-}
+	onNext(x: any) { // called every time data is emitted from Observable
+		console.log(x)
+	}
 
-onError() {
-    return () => {
-        this.openSnackBar('Failed to Login', ['errorSnackBar'])
-    }
-}
+	onError() {
+		return () => {
+			this.openSnackBar('Failed to Login', ['errorSnackBar'])
+		}
+	}
 
-onComplete() { // called after final onNext call, successful completion
-    return () => {
-        this.openSnackBar('Successfully Logged In!', ['successSnackBar'])
-        //this.router.navigate(['callcenter/dashboard'])
-    }
-}
+	onComplete() { // called after final onNext call, successful completion
+		return () => {
+			this.openSnackBar('Successfully Logged In!', ['successSnackBar'])
+		}
+	}
 }

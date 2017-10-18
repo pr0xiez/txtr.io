@@ -1,3 +1,4 @@
+import { NavigationService } from '../services/navigation.service';
 import { AuthService } from '../services/auth.service';
 import { Injectable } from '@angular/core'
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router'
@@ -6,16 +7,16 @@ import { Observable } from 'rxjs/Observable'
 @Injectable()
 export class CanActivateGuard implements CanActivate {
 
-  constructor(private authService: AuthService, private router: Router) { } 
+  constructor(private aS: AuthService, private nS: NavigationService) { } 
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (this.authService.isAuthenticated) {
+    if (this.aS.isAuthenticated) {
         return true
     }
 
     //Track URL user is trying to go to so we can send them there after logging in
-    this.authService.redirectUrl = state.url
-    this.router.navigate(['login'])
+    this.aS.redirectUrl = state.url
+    this.nS.navigateToLoginPage()
     return false
   }
 }

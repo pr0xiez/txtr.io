@@ -1,8 +1,5 @@
-import { Navigation } from './navigation'
-import { Observable } from 'rxjs/Rx'
+import { NavigationService } from './../services/navigation.service';
 import { Component } from '@angular/core'
-import { Router, RouterLink, RouterLinkActive } from '@angular/router'
-import { Subscription } from 'rxjs/Subscription'
 import { AuthService, LoginLogoutText } from '../../core/services/auth.service'
 
 @Component({
@@ -12,27 +9,19 @@ import { AuthService, LoginLogoutText } from '../../core/services/auth.service'
 })
 
 export class ToolbarComponent {
-	constructor(private router: Router,
-							private authService: AuthService) {}
+	constructor(private authService: AuthService,
+							public nS: NavigationService) {}
 
-	nav: Navigation = new Navigation(this.router)
-
-	get loginLogoutText(): string {
+	get loginLogoutText(): LoginLogoutText {
 		return (this.authService.isAuthenticated) ? 'Logout' : 'Login'
 	}
 
-	redirectToLogin() {
-		console.log('go to login')
-		this.router.navigate(['login'])
-	}
-
 	loginLogout() {
-		this.authService.isAuthenticated ? this.logout() : this.redirectToLogin()
-		console.log('button pressed')
+		this.authService.isAuthenticated ? this.logout() : this.nS.navigateToLoginPage()
 	}
 
 	logout() {
     this.authService.logout()
-    this.redirectToLogin()
+    this.nS.navigateToLoginPage()
 	}
 }
