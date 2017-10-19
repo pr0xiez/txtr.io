@@ -18,7 +18,7 @@ export class CustomersService {
     return this.httpClient.post<any>(this.aS.endpointURL, body)
       .map(res => {
         console.log(res.data.customers)
-        this.customers.next(res.data.customers)
+        this.customers.next(res.data.customers.slice(0,16))
       })
   }
 }

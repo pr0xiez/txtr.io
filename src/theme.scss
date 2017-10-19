@@ -2,8 +2,11 @@
 
 @include mat-core();
 
-$primary: mat-palette($mat-blue, 600);
-$accent: mat-palette($mat-green, 600);
+$primary: mat-palette($mat-blue, 500);
+$accent: mat-palette($mat-green, 500);
+
+// $primary: mat-palette($mat-red, 400); RED & GREY LIKE OSU
+// $accent: mat-palette($mat-grey, 400);
 
 $theme: mat-dark-theme($primary, $accent);
 
