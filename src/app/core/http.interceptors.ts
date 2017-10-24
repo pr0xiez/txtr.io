@@ -1,22 +1,22 @@
-import { Observable } from 'rxjs/Observable';
-import { Injectable } from '@angular/core';
-import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/throw';
+import { Observable } from 'rxjs/Observable'
+import { Injectable } from '@angular/core'
+import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http'
+import 'rxjs/add/operator/do'
+import 'rxjs/add/operator/catch'
+import 'rxjs/add/observable/throw'
 
 @Injectable()
 export class HttpInterceptorService implements HttpInterceptor {
   token: string
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (sessionStorage.getItem('token')) {
-      this.token = sessionStorage.getItem('token')
+    if (localStorage.getItem('token')) {
+      this.token = localStorage.getItem('token')
     }
     const _req = req.clone({setHeaders: {authentication: this.token}})
     
     
-    if(sessionStorage.getItem('token')) {
+    if(localStorage.getItem('token')) {
       console.log('intercepted request', _req)
       return next
         .handle(_req)
