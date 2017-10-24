@@ -19,7 +19,7 @@ export type UserType = 'admin' | 'default' | 'disabled'
 @Injectable()
 export class AuthService {
   constructor(private httpClient: HttpClient, private router: Router, private nS: NavigationService) {
-    this.isAuthenticated = sessionStorage.getItem('token') ? true : false
+    this.isAuthenticated = localStorage.getItem('token') ? true : false
   }
   endpointURL: string = 'https://txtr.mybluemix.net/graphql'
   isAuthenticated: boolean
@@ -37,7 +37,7 @@ export class AuthService {
         if (res.data.credentials.token) {
           console.log('token', res.data.credentials.token)
           this.isAuthenticated = true
-          sessionStorage.setItem('token', res.data.credentials.token)
+          localStorage.setItem('token', res.data.credentials.token)
         }
         (this.redirectUrl != null) ? this.router.navigate([this.redirectUrl]) : this.nS.navigateToQueuedTextsPage()
       })
@@ -45,6 +45,6 @@ export class AuthService {
 
   logout() {
     this.isAuthenticated = false
-    sessionStorage.clear()
+    localStorage.clear()
   }
 }
