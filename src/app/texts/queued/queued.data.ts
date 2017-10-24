@@ -12,9 +12,13 @@ import { IHttpResponse, ISentMessages, IQueuedMessages } from '../../core/servic
 
 export class QueuedDataSource {
   constructor(private httpClient: HttpClient, private authService: AuthService) {
-    this.getQueuedMessages().subscribe()
-    console.log(this.data)
+    if (sessionStorage.getItem('queued') == undefined) {
+      this.getQueuedMessages().subscribe()
+    } else {
+      this.messagesChanged(JSON.parse(sessionStorage.getItem('queued')).data.queuedMsgs)
+    }
   }
+
   _filterChange = new BehaviorSubject('')
   messages$: BehaviorSubject<IQueuedMessages[]> = new BehaviorSubject([])
 
@@ -27,8 +31,6 @@ export class QueuedDataSource {
   }
   
   connect() {
-    // return Observable.of(this.data)
-
     const displayDataChanges = [
       this.messages$,
       this._filterChange
@@ -53,6 +55,7 @@ export class QueuedDataSource {
     return this.httpClient.post<IHttpResponse<IQueuedMessages>>(this.authService.endpointURL, body)
       .map(res => {
         console.log('getQueuedMessages', res)
+        sessionStorage.setItem('queued', JSON.stringify(res))
         this.messagesChanged(res.data.queuedMsgs)
         return res
       })  

@@ -46,5 +46,6 @@ export class AuthService {
   logout() {
     this.isAuthenticated = false
     localStorage.clear()
+    sessionStorage.clear()
   }
 }
