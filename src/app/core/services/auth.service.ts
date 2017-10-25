@@ -1,12 +1,12 @@
-import { NavigationService } from './navigation.service';
-import { HttpResponse } from '@angular/common/http/src/response';
-import { IHttpResponse, IUserLogin } from './interfaces';
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { NavigationService } from './navigation.service'
+import { HttpResponse } from '@angular/common/http/src/response'
+import { IHttpResponse, IUserLogin } from './interfaces'
+import { Injectable } from '@angular/core'
+import { HttpClient } from '@angular/common/http'
 
 import { Subject } from 'rxjs/Subject'
 import { Queries } from './queries'
-import { Router } from '@angular/router';
+import { Router } from '@angular/router'
 
 export type LoginLogoutText = 'Login' | 'Logout'
 export type UserType = 'admin' | 'default' | 'disabled'
@@ -39,7 +39,7 @@ export class AuthService {
           this.isAuthenticated = true
           localStorage.setItem('token', res.data.credentials.token)
         }
-        (this.redirectUrl != null) ? this.router.navigate([this.redirectUrl]) : this.nS.navigateToQueuedTextsPage()
+        (this.redirectUrl != null) ? this.router.navigate([this.redirectUrl]) : this.nS.naivgateToCustomersPage()
       })
   }
 

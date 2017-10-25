@@ -4,7 +4,7 @@ import { Router } from '@angular/router'
 @Component({
   template: `
     <h1>Oops! Page Not Found!</h1>
-    <button mat-raised-button color="primary" (click)="nS.navigateToQueuedTextsPage()">Go to Home</button>
+    <button mat-raised-button color="primary" (click)="nS.naivgateToCustomersPage()">Go to Home</button>
   `,
   styles: [
     `
