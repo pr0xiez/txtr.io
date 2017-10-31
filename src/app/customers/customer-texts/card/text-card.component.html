@@ -1,0 +1,13 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{firstName}} {{lastName}}</mat-card-title>
+    <mat-card-subtitle>Sent To: {{toNumber}}</mat-card-subtitle>
+    <mat-card-subtitle>Date Sent: {{sentAt | date}}</mat-card-subtitle>
+    <mat-card-subtitle>Time Sent: {{sentAt.slice(11,19)}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{body}}
+    </p>
+  </mat-card-content>
+</mat-card>

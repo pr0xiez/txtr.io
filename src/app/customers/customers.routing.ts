@@ -1,3 +1,4 @@
+import { TextCardComponent } from './customer-texts/card/text-card.component';
 import { CustomerTextsComponent } from './customer-texts/customer-texts.component';
 import { CardComponent } from './card/card.component';
 import { CanActivateGuard } from '../core/guards/can-activate.guard';
@@ -7,7 +8,7 @@ import { RouterModule, Routes } from '@angular/router'
 
 const routes: Routes = [
 	{ path: 'customers', component: CustomersComponent, canActivate: [ CanActivateGuard ] },
-	{ path: 'customers/:id', component: CustomersComponent, canActivate: [ CanActivateGuard ] }
+	{ path: 'customers/:id', component: CustomerTextsComponent, canActivate: [ CanActivateGuard ] }
 ]
 
 @NgModule({
@@ -19,6 +20,7 @@ export class CustomersRoutingModule {
 	static components = [
 		CustomersComponent,
 		CardComponent,
-		CustomerTextsComponent
+		CustomerTextsComponent,
+		TextCardComponent
 	]
 }

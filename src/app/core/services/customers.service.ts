@@ -1,8 +1,8 @@
-import { AuthService } from './auth.service';
-import { ICustomer } from './../../texts/interfaces';
-import { BehaviorSubject } from 'rxjs/Rx';
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { AuthService } from './auth.service'
+import { ICustomer } from './../../texts/interfaces'
+import { BehaviorSubject } from 'rxjs/BehaviorSubject'
+import { Injectable } from '@angular/core'
+import { HttpClient } from '@angular/common/http'
 import { Queries } from './queries'
 
 @Injectable()

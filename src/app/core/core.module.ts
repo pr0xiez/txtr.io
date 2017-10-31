@@ -1,3 +1,4 @@
+import { CustomerTextsService } from './services/customer-texts.service';
 import { NavigationService } from './services/navigation.service';
 import { CanActivateGuard } from './guards/can-activate.guard';
 import { RouterModule } from '@angular/router'
@@ -23,6 +24,7 @@ import { CustomersService } from './services/customers.service';
     AuthService,
     NavigationService,
     CustomersService,
+    CustomerTextsService,
     CanActivateGuard,
     { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}
   ]

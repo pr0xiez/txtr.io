@@ -1,3 +1,4 @@
+import { CustomerTextsService } from '../../core/services/customer-texts.service';
 import { Component } from '@angular/core'
 
 @Component({
@@ -7,6 +8,5 @@ import { Component } from '@angular/core'
 })
 
 export class CustomerTextsComponent {
-  constructor() {}
-
+  constructor( public ctS: CustomerTextsService ) {}
 }
