@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router'
 
 
 const routes: Routes = [
-	{ path: '', pathMatch: 'full', redirectTo: 'texts/queued'},
+	{ path: '', pathMatch: 'full', redirectTo: 'texts/type'},
 	{ path:'texts/type',  component: TypeComponent, canActivate: [CanActivateGuard] }
 ]
 
