@@ -6,11 +6,13 @@ import { Observable } from 'rxjs/Observable'
 
 @Injectable()
 export class CanActivateGuard implements CanActivate {
-
-  constructor(private aS: AuthService, private nS: NavigationService) { } 
+  isAuthenticated: boolean
+  constructor(private aS: AuthService, private nS: NavigationService) {
+    this.aS.isAuthenticated.subscribe(authValue => this.isAuthenticated = authValue)
+  } 
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (this.aS.isAuthenticated) {
+    if (this.isAuthenticated === true) {
         return true
     }
 

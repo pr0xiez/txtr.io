@@ -1,5 +1,5 @@
 <div fxLayout="row" fxLayoutWrap fxLayoutGap="10px">
-  <text-card *ngFor="let message of ctS.sentMessages"
+  <text-card *ngFor="let message of messages$ | async"
     [message]="message">
   </text-card>
 </div>

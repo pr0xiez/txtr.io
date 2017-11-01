@@ -1,12 +1,15 @@
+import { Observable } from 'rxjs/Observable'
+import { BehaviorSubject } from 'rxjs/BehaviorSubject'
 import { NavigationService } from './navigation.service'
-import { HttpResponse } from '@angular/common/http/src/response'
 import { IHttpResponse, IUserLogin } from './interfaces'
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 
-import { Subject } from 'rxjs/Subject'
 import { Queries } from './queries'
 import { Router } from '@angular/router'
+import 'rxjs/add/operator/map'
+import 'rxjs/add/observable/of'
+import 'rxjs/add/operator/catch'
 
 export type LoginLogoutText = 'Login' | 'Logout'
 export type UserType = 'admin' | 'default' | 'disabled'
@@ -19,10 +22,10 @@ export type UserType = 'admin' | 'default' | 'disabled'
 @Injectable()
 export class AuthService {
   constructor(private httpClient: HttpClient, private router: Router, private nS: NavigationService) {
-    this.isAuthenticated = localStorage.getItem('token') ? true : false
+    localStorage.getItem('token') ? this.isAuthenticated.next(true) : this.isAuthenticated.next(false)
   }
   endpointURL: string = 'https://txtr.mybluemix.net/graphql'
-  isAuthenticated: boolean
+  isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject(false)
   userType: UserType
   redirectUrl: string
 
@@ -31,20 +34,21 @@ export class AuthService {
 			query: Queries.queries.login,
 			variables: { email: userLogin.email, password: userLogin.password }
     }
-    console.log(body)
-    return this.httpClient.post<any>(this.endpointURL, body)
+
+    return this.httpClient.post<IHttpResponse<any>>(this.endpointURL, body)
       .map(res => {
         if (res.data.credentials.token) {
-          console.log('token', res.data.credentials.token)
-          this.isAuthenticated = true
+          this.isAuthenticated.next(true)
           localStorage.setItem('token', res.data.credentials.token)
         }
         (this.redirectUrl != null) ? this.router.navigate([this.redirectUrl]) : this.nS.naivgateToCustomersPage()
+        return res
       })
+      .catch(e => Observable.throw(e))
   }
 
   logout() {
-    this.isAuthenticated = false
+    this.isAuthenticated.next(false)
     localStorage.clear()
     sessionStorage.clear()
   }

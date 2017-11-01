@@ -1,3 +1,4 @@
+import { NavigationService } from '../../core/services/navigation.service';
 import { ICustomer } from './../../texts/interfaces';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 
@@ -9,6 +10,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 })
 
 export class CardComponent {
+  constructor(public nS: NavigationService) {}
   @Input() customer: ICustomer
   
   get id(): number { return this.customer.id }

@@ -1,7 +1,6 @@
-import { CustomerTextsService } from './services/customer-texts.service';
-import { NavigationService } from './services/navigation.service';
-import { CanActivateGuard } from './guards/can-activate.guard';
-import { RouterModule } from '@angular/router'
+import { CustomerTextsService } from './services/customer-texts.service'
+import { NavigationService } from './services/navigation.service'
+import { CanActivateGuard } from './guards/can-activate.guard'
 import { CommonModule } from '@angular/common'
 import { SharedModule } from '../shared/shared.module'
 import { NgModule, Optional, SkipSelf } from '@angular/core'

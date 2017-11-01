@@ -14,4 +14,7 @@ export class NavigationService {
   naivgateToCustomersPage() {
     this.router.navigate(['customers'])
   }
+  navigateToCustomerTextsPage(id: number) {
+    this.router.navigate([`/customers/${id}`])
+  }
 }
