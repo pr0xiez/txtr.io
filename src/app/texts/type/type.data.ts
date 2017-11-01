@@ -1,25 +1,24 @@
-import { IMessageTypesR } from './../interfaces';
-import { IMessageType } from '../interfaces';
-import { Observable } from 'rxjs/Rx'
+import { BehaviorSubject } from 'rxjs/BehaviorSubject'
+import { IMessageTypesR } from './../interfaces'
+import { Observable } from 'rxjs/Observable'
 import { HttpClient } from '@angular/common/http'
 import { Queries } from '../../core/services/queries'
-import { Subject } from 'rxjs/Subject'
 import { AuthService } from '../../core/services/auth.service'
-import { IHttpResponse, IMessageTypes, IQueuedMessages, ISentMessages } from '../../core/services/interfaces';
+import { IHttpResponse, IMessageTypes } from '../../core/services/interfaces'
 /**
  * @author ADH - 9.13.17 - <alex.hall@united-installs.com>
- * @description handles data stream needed by queued component
+ * @description handles data for text message types comonent
  */
 
 export class TypesDataSource {
   constructor(private httpClient: HttpClient, private authService: AuthService) {
-    this.getQueuedMessages().subscribe()
+    if (sessionStorage.getItem('textTypes') == undefined) {
+      this.getQueuedMessages().subscribe()
+    } else {
+      this.messages$.next(JSON.parse(sessionStorage.getItem('textTypes')).data.msgTypes)
+    }
   }
-  messages$: Subject<any[]> = new Subject
-  
-  messagesChanged(msgs) {
-    this.messages$.next(msgs)
-  }
+  messages$: BehaviorSubject<IMessageTypesR[]> = new BehaviorSubject<IMessageTypesR[]>([])
   
   connect() {
     return this.messages$.asObservable()
@@ -36,8 +35,8 @@ export class TypesDataSource {
 
     return this.httpClient.post<IHttpResponse<IMessageTypes>>(this.authService.endpointURL, body)
       .map(res => {
-        console.log('getMessageTypes', res)
-        this.messagesChanged(res.data.msgTypes)
+        sessionStorage.setItem('textTypes', JSON.stringify(res))
+        this.messages$.next(res.data.msgTypes)
         return res
       })
   }

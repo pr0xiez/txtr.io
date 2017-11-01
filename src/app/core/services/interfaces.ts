@@ -11,13 +11,13 @@ export interface IHttpResponse<T> {
 }
 
 export interface ISentMessages {
-  sentMsgs: ISentMessagesR
+  sentMsgs: ISentMessagesR[]
 }
 
 export interface IQueuedMessages {
-  queuedMsgs: IQueuedMessagesR
+  queuedMsgs: IQueuedMessagesR[]
 }
 
 export interface IMessageTypes {
-  msgTypes: IMessageTypesR
+  msgTypes: IMessageTypesR[]
 }

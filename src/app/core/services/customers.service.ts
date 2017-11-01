@@ -7,7 +7,14 @@ import { Queries } from './queries'
 
 @Injectable()
 export class CustomersService {
-  constructor(private httpClient: HttpClient, private aS: AuthService) { }
+  constructor(private httpClient: HttpClient, private aS: AuthService) {
+    if (sessionStorage.getItem('customers') == undefined) {
+      this.getCustomers().subscribe()
+    } else {
+      this.customers.next(this.getCustomersFromCache())
+    }
+  }
+  getCustomersFromCache() { return JSON.parse(sessionStorage.getItem('customers')).data.customers.slice(0,16)}
   customers: BehaviorSubject<ICustomer[]> = new BehaviorSubject<ICustomer[]>([])
 
   getCustomers() {
@@ -17,7 +24,7 @@ export class CustomersService {
 
     return this.httpClient.post<any>(this.aS.endpointURL, body)
       .map(res => {
-        console.log(res.data.customers)
+        sessionStorage.setItem('customers', JSON.stringify(res))
         this.customers.next(res.data.customers.slice(0,16))
       })
   }

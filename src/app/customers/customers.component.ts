@@ -16,7 +16,7 @@ import { Component } from '@angular/core'
 
 export class CustomersComponent {
   constructor(private cS: CustomersService) {
-    this.cS.getCustomers().subscribe()
+    console.log('customers component constructor ran')
     this.customers = this.cS.customers.asObservable()
   }
   customers

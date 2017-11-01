@@ -8,13 +8,10 @@ export class NavigationService {
   navigateToLoginPage() {
     this.router.navigate(['login'])
   }
-  navigateToQueuedTextsPage() {
-    this.router.navigate(['texts/queued'])
-  }
-  navigateToSentTextsPage() {
-    this.router.navigate(['texts/sent'])
-  }
   navigateToTextsTypePage() {
     this.router.navigate(['texts/type'])
+  }
+  naivgateToCustomersPage() {
+    this.router.navigate(['customers'])
   }
 }
