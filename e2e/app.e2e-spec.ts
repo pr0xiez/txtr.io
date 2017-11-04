@@ -1,14 +1,22 @@
-import { AppPage } from './app.po';
+import { AppPage } from './app.po'
 
-describe('txtr.io App', () => {
-  let page: AppPage;
+describe('txtr.io Login', () => {
+  let page: AppPage
 
   beforeEach(() => {
-    page = new AppPage();
-  });
+    page = new AppPage()
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
-  });
-});
+
+  })
+
+  it('should take user to login page upon first visit', () => {
+    page.navigateToRoot()
+    expect(page.getCurrentPage().then(x => x)).toEqual('http://localhost:49152/login')
+  })
+
+  it('should navigate directly to texts/type page upon successful login', () => {
+    page.navigateToRoot()
+    page.submitLoginFormWithValidCredentials()
+    expect(page.getCurrentPage().then(x => x)).toEqual('http://localhost:49152/texts/type')
+  })
+})

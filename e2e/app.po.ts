@@ -1,11 +1,17 @@
-import { browser, by, element } from 'protractor';
+import { browser, by, element } from 'protractor'
 
 export class AppPage {
-  navigateTo() {
-    return browser.get('/');
+  navigateToRoot() {
+    return browser.get('/')
   }
 
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+  getCurrentPage() {
+    return browser.getCurrentUrl()
+  }
+
+  submitLoginFormWithValidCredentials() {
+    element(by.css("input[formcontrolname='email']")).sendKeys('devAdmin@united-installs.com')
+    element(by.css("input[formcontrolname='password']")).sendKeys('United123!')
+    element(by.css("button[type='submit']")).click() 
   }
 }
