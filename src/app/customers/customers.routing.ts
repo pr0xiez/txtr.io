@@ -5,6 +5,7 @@ import { CanActivateGuard } from '../core/guards/can-activate.guard';
 import { CustomersComponent } from './customers.component';
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
+import { FilterComponent } from '../core/filter/filter.component';
 
 const routes: Routes = [
 	{ path: 'customers', component: CustomersComponent, canActivate: [ CanActivateGuard ] },
@@ -21,6 +22,7 @@ export class CustomersRoutingModule {
 		CustomersComponent,
 		CardComponent,
 		CustomerTextsComponent,
-		TextCardComponent
+		TextCardComponent,
+		FilterComponent
 	]
 }

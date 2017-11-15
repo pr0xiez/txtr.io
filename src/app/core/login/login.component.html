@@ -1,13 +1,11 @@
 <form [formGroup]="loginForm" (ngSubmit)="submit(loginForm)" ngNativeValidate>
 	<div fxLayout="column" fxLayoutGap="8px">
 		<h3 fxFlexAlign="center">txtr.io</h3>
-		<mat-divider></mat-divider>
 		<mat-form-field class="actions" floatPlaceholder="never">
-			<input matInput name="email" formControlName="email" placeholder="Email..." required>
+			<input matInput class="email" formControlName="email" placeholder="Email..." required>
 		</mat-form-field>
-
 		<mat-form-field class="actions" floatPlaceholder="never">
-			<input matInput name="password" formControlName="password" placeholder="Password.." type="password" required>
+			<input matInput class="password" formControlName="password" placeholder="Password.." type="password" required>
 		</mat-form-field>
 	</div>
 	<br>
