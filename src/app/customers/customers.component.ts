@@ -4,12 +4,12 @@ import { Component } from '@angular/core'
 
 @Component({
   template: `
+    <filter></filter>
   <div fxLayout="row" fxLayoutWrap fxLayoutGap="10px">
-  <filter></filter>
-    <customer-card 
-      *ngFor="let x of customers | async; trackBy: trackById"
-      [customer]="x">
-    </customer-card>
+      <customer-card 
+        *ngFor="let x of customers | async; trackBy: trackById"
+        [customer]="x">
+      </customer-card>
   </div>
   `,
   styleUrls: ['./customers.component.scss']

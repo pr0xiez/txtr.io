@@ -1,1 +1,10 @@
-<p>hihiihih</p>
+<mat-sidenav-container class="filter-container">
+    <mat-sidenav #sidenav>
+        <button mat-button class="toggle-button" (click)="sidenav.toggle()">Go Back</button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <button mat-button class="toggle-button" (click)="sidenav.toggle()">
+            <mat-icon>search</mat-icon>
+        </button>
+    </mat-sidenav-content>
+</mat-sidenav-container>
