@@ -1,10 +1,25 @@
+@import "/../../../theme";
+
 .filter-container {
     width: 125px;
-    height: 40%;
+    height: fit-content;
+    padding: 10px 10px 10px 10px;
     margin-right: 10px;
+    background-color: #212121;
 }
 
-.toggle-button {
-    width: 125px;
-    color: primary;
+.filter-container mat-form-field {
+    width: 100px;
+    margin: 10px 0px 0px 0px;
+}
+
+.filter-header {
+    color: white;
+    vertical-align: middle;
+    font-size: 18px;
+    display: inline;
+}
+
+.icon-search {
+    vertical-align: middle;
 }

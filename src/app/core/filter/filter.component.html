@@ -1,10 +1,16 @@
-<mat-sidenav-container class="filter-container">
-    <mat-sidenav #sidenav>
-        <button mat-button class="toggle-button" (click)="sidenav.toggle()">Go Back</button>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <button mat-button class="toggle-button" (click)="sidenav.toggle()">
-            <mat-icon>search</mat-icon>
-        </button>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+<mat-card class="filter-container">
+        <mat-card-header>
+                <mat-card-title>
+                        <mat-icon class="icon-search">search</mat-icon> <h1 class="filter-header"> Filters</h1>
+                </mat-card-title>
+        </mat-card-header>
+        <mat-form-field>
+            <input matInput placeholder="by Name">
+        </mat-form-field>
+        <mat-form-field>
+                <input matInput placeholder="by Phone">
+        </mat-form-field>
+        <mat-form-field>
+                <input matInput placeholder="by Timezone">
+        </mat-form-field>
+</mat-card>
