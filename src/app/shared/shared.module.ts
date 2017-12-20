@@ -1,5 +1,5 @@
 import { FlexLayoutModule } from '@angular/flex-layout'
-import { MatInputModule, MatToolbarModule, MatTableModule, MatListModule, MatSnackBarModule, MatButtonModule, MatCardModule, MatSidenavModule, MatDatepickerModule } from '@angular/material'
+import { MatInputModule, MatToolbarModule, MatTableModule, MatListModule, MatSnackBarModule, MatButtonModule, MatCardModule, MatSidenavModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material'
 import { MatIconModule } from '@angular/material/icon'
 import { ReactiveFormsModule } from '@angular/forms'
 import { CommonModule } from '@angular/common'
@@ -24,7 +24,8 @@ import { NgModule } from '@angular/core'
     MatCardModule,
     MatIconModule,
     MatSidenavModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatNativeDateModule
   ]
 })
 export class SharedModule { }
