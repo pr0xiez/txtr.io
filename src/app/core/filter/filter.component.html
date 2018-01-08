@@ -1,26 +1,27 @@
 <mat-card class="filter-container">
         <mat-card-header>
                 <mat-card-title>
-                        <mat-icon class="icon-search">search</mat-icon> <h1 class="filter-header"> Filters</h1>
+                        <h1 class="filter-header"> Filters</h1>
                 </mat-card-title>
         </mat-card-header>
-        <mat-form-field>
+        <mat-form-field class="filter-field" id="filter-by-name-field">
             <input matInput placeholder="by Name">
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="filter-field" id="filter-by-email-field">
                 <input matInput placeholder="by Email">
-            </mat-form-field>
-        <mat-form-field>
+        </mat-form-field>
+        <mat-form-field class="filter-field" id="filter-by-phone-field">
                 <input matInput placeholder="by Phone">
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="filter-field" id="filter-starting-from-field">
                 <input matInput [matDatepicker]="startingFromPicker" placeholder="Starting From">
                 <mat-datepicker-toggle matSuffix [for]="startingFromPicker"></mat-datepicker-toggle>
                 <mat-datepicker #startingFromPicker></mat-datepicker>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="filter-field" id="filter-up-until-field">
                 <input matInput [matDatepicker]="upUntilPicker" placeholder="Up Until">
                 <mat-datepicker-toggle matSuffix [for]="upUntilPicker"></mat-datepicker-toggle>
                 <mat-datepicker #upUntilPicker></mat-datepicker>
         </mat-form-field>
+        <button mat-button mat-raised-button color="primary"><mat-icon class="icon-search">search</mat-icon></button>
 </mat-card>

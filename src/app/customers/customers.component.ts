@@ -4,7 +4,7 @@ import { Component } from '@angular/core'
 
 @Component({
   template: `
-    <filter></filter>
+  <filter></filter>
   <div fxLayout="row" fxLayoutWrap fxLayoutGap="10px">
       <customer-card 
         *ngFor="let x of customers | async; trackBy: trackById"
