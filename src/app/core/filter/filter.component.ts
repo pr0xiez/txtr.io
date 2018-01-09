@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
     selector: 'filter',
@@ -8,10 +8,22 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 
 export class FilterComponent implements OnInit {
-    constructor() {}
+
+    filterForm: FormGroup
+
+    constructor(private fb: FormBuilder) {
+
+    }
+
     ngOnInit() { }
 
-    filterForm = new FormGroup({
-        
-    })
+    createForm(){
+        this.filterForm = this.fb.group({
+            name: '',
+            email: '',
+            phone: '',
+            startDate: Date,
+            endDate: Date
+        })
+    }
 }
